@@ -7,6 +7,7 @@ locals {
 control "acm_certificate_expires_30_days" {
   title       = "ACM certificates should not expire within 30 days"
   description = "Ensure network integrity is protected by ensuring X509 certificates are issued by AWS ACM."
+  severity    = "high"
   query       = query.acm_certificate_expires_30_days
 
   tags = merge(local.conformance_pack_acm_common_tags, {
