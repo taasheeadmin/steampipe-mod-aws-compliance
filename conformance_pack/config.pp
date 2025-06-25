@@ -8,7 +8,7 @@ control "config_enabled_all_regions" {
   title       = "AWS Config should be enabled"
   description = "This control checks whether AWS Config is enabled in the account for the local Region and is recording all resources."
   query       = query.config_enabled_all_regions
-
+  severity    = "high"
   tags = merge(local.conformance_pack_config_common_tags, {
     gdpr                                   = "true"
     gxp_eu_annex_11                        = "true"
@@ -26,7 +26,7 @@ control "config_configuration_recorder_no_failed_deliver_logs" {
   title       = "Config configuration recorder should not fail to deliver logs"
   description = "This control checks whether Config configuration recorder fails to deliver logs. This control is non-compliant if Config configuration recorder fails to deliver logs."
   query       = query.config_configuration_recorder_no_failed_deliver_logs
-
+  severity    = "high"
   tags = local.conformance_pack_config_common_tags
 }
 

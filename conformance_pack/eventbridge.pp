@@ -8,7 +8,7 @@ control "eventbridge_custom_bus_resource_based_policy_attached" {
   title       = "EventBridge custom event buses should have a resource-based policy attached"
   description = "This control checks if an Amazon EventBridge custom event bus has a resource-based policy attached. This control fails if the custom event bus doesn't have a resource-based policy.."
   query       = query.eventbridge_custom_bus_resource_based_policy_attached
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_eventbridge_common_tags, {
     acsc_essential_eight = "true"
   })

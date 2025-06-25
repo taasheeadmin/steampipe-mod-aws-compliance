@@ -8,7 +8,7 @@ control "mq_broker_restrict_public_access" {
   title       = "MQ brokers should restrict public access"
   description = "Ensure whether MQ broker is not publicly accessible. The rule is compliant if the MQ broker is publicly accessible."
   query       = query.mq_broker_restrict_public_access
-
+  severity    = "medium"
   tags = local.conformance_pack_mq_common_tags
 }
 

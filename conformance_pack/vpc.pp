@@ -8,7 +8,7 @@ control "vpc_flow_logs_enabled" {
   title       = "VPC flow logs should be enabled"
   description = "The VPC flow logs provide detailed records for information about the IP traffic going to and from network interfaces in your AWS Virtual Private Cloud (AWS VPC."
   query       = query.vpc_flow_logs_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -37,7 +37,7 @@ control "vpc_security_group_remote_administration" {
   title       = "Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports"
   description = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389."
   query       = query.vpc_security_group_remote_administration
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -45,7 +45,7 @@ control "vpc_security_group_remote_administration_ipv4" {
   title       = "Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration ports"
   description = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389, using either the TCP (6), UDP (17) or ALL (-1) protocols."
   query       = query.vpc_security_group_remote_administration_ipv4
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -53,7 +53,7 @@ control "vpc_security_group_restrict_ingress_rdp_all" {
   title       = "Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389"
   description = "Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to port 3389."
   query       = query.vpc_security_group_restrict_ingress_rdp_all
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -61,7 +61,7 @@ control "vpc_security_group_remote_administration_ipv6" {
   title       = "Ensure no security groups allow ingress from ::/0 to remote server administration ports"
   description = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389."
   query       = query.vpc_security_group_remote_administration_ipv6
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -69,7 +69,7 @@ control "vpc_security_group_unused" {
   title       = "Unused EC2 security groups should be removed"
   description = "This AWS control checks that security groups are attached to AWS Elastic Compute Cloud (AWS EC2) instances or to an elastic network interface. The control will fail if the security group is not associated with an AWS EC2 instance or an elastic network interface."
   query       = query.vpc_security_group_unused
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -77,7 +77,7 @@ control "vpc_igw_attached_to_authorized_vpc" {
   title       = "VPC internet gateways should be attached to authorized vpc"
   description = "Manage access to resources in the AWS Cloud by ensuring that internet gateways are only attached to authorized AWS Virtual Private Cloud (AWS VPC)."
   query       = query.vpc_igw_attached_to_authorized_vpc
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     gxp_21_cfr_part_11                     = "true"
     hipaa_final_omnibus_security_rule_2013 = "true"
@@ -98,7 +98,7 @@ control "vpc_network_acl_remote_administration" {
   title       = "Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389"
   description = "This control checks if default ports for SSH/RDP ingress traffic for network access control lists (NACLs) is unrestricted. The rule fails if a NACL inbound entry allows a source CIDR block of '0.0.0.0/0' or '::/0' for ports 22 or 3389."
   query       = query.vpc_network_acl_remote_administration
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     nist_csf     = "true"
     pci_dss_v321 = "true"
@@ -110,7 +110,7 @@ control "vpc_security_group_restrict_ingress_tcp_udp_all" {
   title       = "VPC security groups should restrict ingress TCP and UDP access from 0.0.0.0/0"
   description = "Manage access to resources in the AWS Cloud by ensuring common ports are restricted on AWS Elastic Compute Cloud (AWS EC2) Security Groups."
   query       = query.vpc_security_group_restrict_ingress_tcp_udp_all
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -135,7 +135,7 @@ control "vpc_security_group_restrict_ingress_common_ports_all" {
   title       = "VPC security groups should restrict ingress access on ports 20, 21, 22, 3306, 3389, 4333 from 0.0.0.0/0"
   description = "Manage access to resources in the AWS Cloud by ensuring common ports are restricted on AWS Elastic Compute Cloud (AWS EC2) security groups."
   query       = query.vpc_security_group_restrict_ingress_common_ports_all
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     audit_manager_control_tower            = "true"
     cisa_cyber_essentials                  = "true"
@@ -161,7 +161,7 @@ control "vpc_security_group_restrict_ingress_ssh_all" {
   title       = "VPC security groups should restrict ingress SSH access from 0.0.0.0/0"
   description = "AWS Elastic Compute Cloud (AWS EC2) Security Groups can help manage network access by providing stateful filtering of ingress and egress network traffic to AWS resources."
   query       = query.vpc_security_group_restrict_ingress_ssh_all
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -190,7 +190,7 @@ control "vpc_default_security_group_restricts_all_traffic" {
   title       = "VPC default security group should not allow inbound and outbound traffic"
   description = "AWS Elastic Compute Cloud (AWS EC2) security groups can help in the management of network access by providing stateful filtering of ingress and egress network traffic to AWS resources."
   query       = query.vpc_default_security_group_restricts_all_traffic
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -215,7 +215,7 @@ control "vpc_vpn_tunnel_up" {
   title       = "Both VPN tunnels provided by AWS Site-to-Site VPN should be in UP status"
   description = "Redundant Site-to-Site VPN tunnels can be implemented to achieve resilience requirements."
   query       = query.vpc_vpn_tunnel_up
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     fedramp_low_rev_4                      = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -236,7 +236,7 @@ control "vpc_eip_associated" {
   title       = "VPC EIPs should be associated with an EC2 instance or ENI"
   description = "This rule ensures Elastic IPs allocated to a AWS Virtual Private Cloud (AWS VPC) are attached to AWS Elastic Compute Cloud (AWS EC2) instances or in-use Elastic Network Interfaces."
   query       = query.vpc_eip_associated
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cis_controls_v8_ig1   = "true"
     cisa_cyber_essentials = "true"
@@ -252,7 +252,7 @@ control "vpc_security_group_associated_to_eni" {
   title       = "VPC security groups should be associated with at least one ENI"
   description = "This rule ensures the security groups are attached to an AWS Elastic Compute Cloud (AWS EC2) instance or to an ENI. This rule helps monitoring unused security groups in the inventory and the management of your environment."
   query       = query.vpc_security_group_associated_to_eni
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cis_controls_v8_ig1 = "true"
     nist_800_171_rev_2  = "true"
@@ -264,7 +264,7 @@ control "vpc_subnet_auto_assign_public_ip_disabled" {
   title       = "VPC subnet auto assign public IP should be disabled"
   description = "Ensure that AWS Virtual Private Cloud (AWS VPC) subnets are assigned a public IP address. The control is compliant if AWS VPC does not have subnets that are assigned a public IP address. The control is non-compliant if AWS VPC has subnets that are assigned a public IP address."
   query       = query.vpc_subnet_auto_assign_public_ip_disabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -286,7 +286,7 @@ control "vpc_route_table_restrict_public_access_to_igw" {
   title       = "VPC route table should restrict public access to IGW"
   description = "Ensure that there are public routes in the route table to an Internet Gateway (IGW). The rule is non-compliant if a route to an IGW has a destination CIDR block of '0.0.0.0/0' or '::/0'."
   query       = query.vpc_route_table_restrict_public_access_to_igw
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -308,7 +308,7 @@ control "vpc_security_group_restrict_ingress_redis_port" {
   title       = "VPC security groups should restrict ingress redis access from 0.0.0.0/0"
   description = "AWS VPC security groups can help in managing network access by providing stateful filtering of ingress and egress network traffic to AWS resources."
   query       = query.vpc_security_group_restrict_ingress_redis_port
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -316,7 +316,7 @@ control "vpc_security_group_restrict_ingress_kafka_port" {
   title       = "VPC security groups should restrict ingress Kafka port access from 0.0.0.0/0"
   description = "AWS VPC security groups can help in managing network access by providing stateful filtering of ingress and egress network traffic to AWS resources."
   query       = query.vpc_security_group_restrict_ingress_kafka_port
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -324,7 +324,7 @@ control "vpc_security_group_restrict_ingress_kibana_port" {
   title       = "VPC security groups should restrict ingress kibana port access from 0.0.0.0/0"
   description = "AWS VPC security groups can help in managing network access by providing stateful filtering of ingress and egress network traffic to AWS resources."
   query       = query.vpc_security_group_restrict_ingress_kibana_port
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -332,7 +332,7 @@ control "vpc_security_group_not_uses_launch_wizard_sg" {
   title       = "VPC security groups should restrict uses of 'launch-wizard' security groups."
   description = "Ensure the launch-wizard security group in your AWS account is not being used."
   query       = query.vpc_security_group_not_uses_launch_wizard_sg
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -340,7 +340,7 @@ control "vpc_endpoint_service_acceptance_required_enabled" {
   title       = "VPC endpoint services should have acceptance required enabled"
   description = "Ensure VPC endpoints connection requests to the service are accepted by the service owner."
   query       = query.vpc_endpoint_service_acceptance_required_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -348,7 +348,7 @@ control "vpc_network_acl_unused" {
   title       = "VPC network access control lists (network ACLs) should be associated with a subnet."
   description = "Ensure there are no unused network access control lists (network ACLs). The rule is compliant if each network ACL is associated with a subnet. The rule is non-compliant if a network ACL is not associated with a subnet."
   query       = query.vpc_network_acl_unused
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     cis_controls_v8_ig1   = "true"
     cisa_cyber_essentials = "true"
@@ -361,7 +361,7 @@ control "vpc_configured_to_use_vpc_endpoints" {
   title       = "VPC should be configured to use VPC endpoints"
   description = "Checks if Service Endpoint for the service provided in rule parameter is created for each AWS Virtual Private Cloud (AWS VPC). The rule is non-compliant if an AWS VPC doesn't have an AWS VPC endpoint created for the service."
   query       = query.vpc_configured_to_use_vpc_endpoints
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     hipaa_final_omnibus_security_rule_2013 = "true"
     hipaa_security_rule_2003               = "true"
@@ -375,7 +375,7 @@ control "vpc_security_group_restricted_common_ports" {
   title       = "Security groups should not allow unrestricted access to ports with high risk"
   description = "This control checks whether unrestricted incoming traffic for the security groups is accessible to the specified ports that have the highest risk. This control passes when none of the rules in a security group allow ingress traffic from 0.0.0.0/0 for those ports."
   query       = query.vpc_security_group_restricted_common_ports
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -383,7 +383,7 @@ control "vpc_security_group_allows_ingress_authorized_ports" {
   title       = "VPC Security groups should only allow unrestricted incoming traffic for authorized ports"
   description = "This control checks whether the VPC security groups that are in use allow unrestricted incoming traffic. Optionally the rule checks whether the port numbers are listed in the authorizedTcpPorts parameter. The default values for authorizedTcpPorts are 80 and 443."
   query       = query.vpc_security_group_allows_ingress_authorized_ports
-
+  severity    = "high"
   tags = merge(local.conformance_pack_vpc_common_tags, {
     nydfs_23 = "true"
   })
@@ -393,7 +393,7 @@ control "vpc_security_group_allows_ingress_to_cassandra_ports" {
   title       = "VPC security groups should restrict ingress from 0.0.0.0/0 or ::/0 to cassandra ports 7199 or 9160 or 8888"
   description = "This control checks whether the VPC security groups allow ingress from 0.0.0.0/0 or ::/0 to cassandra ports 7199 or 9160 or 8888. This control passes when none of the rules in a security group allow ingress traffic from 0.0.0.0/0 from ports 7199 or 9160 or 8888."
   query       = query.vpc_security_group_allows_ingress_to_cassandra_ports
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -401,7 +401,7 @@ control "vpc_security_group_allows_ingress_to_memcached_port" {
   title       = "VPC security groups should restrict ingress from 0.0.0.0/0 or ::/0 to memcached port 11211"
   description = "This control checks whether the VPC security groups that are in use allow allow ingress from 0.0.0.0/0 or ::/0 to memcached port 11211. Optionally the rule checks whether the port numbers are listed in the authorizedTcpPorts parameter. This control passes when none of the rules in a security group allow ingress traffic from 0.0.0.0/0 from port 11211."
   query       = query.vpc_security_group_allows_ingress_to_memcached_port
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -409,7 +409,7 @@ control "vpc_security_group_allows_ingress_to_mongodb_ports" {
   title       = "VPC security groups should restrict ingress from 0.0.0.0/0 or ::/0 to mongoDB ports 27017 and 27018"
   description = "This control checks whether the VPC security groups that are in use allow ingress from 0.0.0.0/0 or ::/0 to mongoDB ports 27017 and 27018. Optionally the rule checks whether the port numbers are listed in the authorizedTcpPorts parameter. This control passes when none of the rules in a security group allow ingress traffic from 0.0.0.0/0 from ports 27017 and 27018."
   query       = query.vpc_security_group_allows_ingress_to_mongodb_ports
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -417,7 +417,7 @@ control "vpc_security_group_allows_ingress_to_oracle_ports" {
   title       = "VPC security groups should restrict ingress from 0.0.0.0/0 or ::/0 to oracle ports 1521 or 2483"
   description = "This control checks whether the VPC security groups that are in use allow ingress from 0.0.0.0/0 or ::/0 to oracle ports 1521 or 2483. Optionally the rule checks whether the port numbers are listed in the authorizedTcpPorts parameter. This control passes when none of the rules in a security group allow ingress traffic from 0.0.0.0/0 from ports 1521 or 2483."
   query       = query.vpc_security_group_allows_ingress_to_oracle_ports
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -425,7 +425,7 @@ control "vpc_in_more_than_one_region" {
   title       = "VPCs should exist in multiple regions"
   description = "This control checks whether there are VPCs present in multiple regions."
   query       = query.vpc_in_more_than_one_region
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -433,7 +433,7 @@ control "vpc_subnet_multi_az_enabled" {
   title       = "VPCs subnets should exist in multiple availability zones"
   description = "Ensure that each VPC has subnets spread across multiple availability zones."
   query       = query.vpc_subnet_multi_az_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -441,7 +441,7 @@ control "vpc_subnet_public_and_private" {
   title       = "VPCs should have both public and private subnets configured"
   description = "Ensure that all VPCs have both public and private subnets configured."
   query       = query.vpc_subnet_public_and_private
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -449,7 +449,7 @@ control "vpc_peering_connection_route_table_least_privilege" {
   title       = "VPCs peering connection route tables should have least privilege"
   description = "Ensure that all VPCs peering connection route tables have least privilege."
   query       = query.vpc_peering_connection_route_table_least_privilege
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -457,7 +457,7 @@ control "vpc_not_in_use" {
   title       = "VPCs should be in use"
   description = "This control checks whether there are any unused VPCs."
   query       = query.vpc_not_in_use
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -465,7 +465,7 @@ control "vpc_peering_connection_no_cross_account_access" {
   title       = "VPCs peering connection should not be allowed in cross account"
   description = "Ensure that all VPCs peering connection are not having cross account access."
   query       = query.vpc_peering_connection_no_cross_account_access
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -473,7 +473,7 @@ control "vpc_gateway_endpoint_restrict_public_access" {
   title       = "VPC gateway endpoints should restrict public access"
   description = "Manage access to resources in the AWS Cloud by ensuring VPC gateway endpoints cannot be publicly accessed."
   query       = query.vpc_gateway_endpoint_restrict_public_access
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 
@@ -481,7 +481,7 @@ control "vpc_security_group_restrict_ingress_cifs_port_all" {
   title       = "VPC security groups should restrict ingress CIFS access from 0.0.0.0/0 and ::/0"
   description = "Common Internet File System (CIFS) is a network file-sharing protocol that allows systems to share files over a network. However, unrestricted CIFS access can expose your data to unauthorized users, leading to potential security risks. It is important to restrict CIFS access to only trusted networks and users to prevent unauthorized access and data breaches."
   query       = query.vpc_security_group_restrict_ingress_cifs_port_all
-
+  severity    = "high"
   tags = local.conformance_pack_vpc_common_tags
 }
 

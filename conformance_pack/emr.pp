@@ -8,7 +8,7 @@ control "emr_account_public_access_blocked" {
   title       = "EMR account public access should be blocked"
   description = "Manage access to resources in the AWS Cloud by ensuring Amazon EMR clusters cannot be made public."
   query       = query.emr_account_public_access_blocked
-
+  severity    = "high"
   tags = merge(local.conformance_pack_emr_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -19,7 +19,7 @@ control "emr_cluster_kerberos_enabled" {
   title       = "EMR cluster Kerberos should be enabled"
   description = "The access permissions and authorizations can be managed and incorporated with the principles of least privilege and separation of duties, by enabling Kerberos for AWS EMR clusters."
   query       = query.emr_cluster_kerberos_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_emr_common_tags, {
     cis_controls_v8_ig1                    = "true"
     ffiec                                  = "true"
@@ -40,7 +40,7 @@ control "emr_cluster_master_nodes_no_public_ip" {
   title       = "EMR cluster master nodes should not have public IP addresses"
   description = "Manage access to the AWS Cloud by ensuring AWS EMR cluster master nodes cannot be publicly accessed."
   query       = query.emr_cluster_master_nodes_no_public_ip
-
+  severity    = "high"
   tags = merge(local.conformance_pack_emr_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -66,7 +66,7 @@ control "emr_cluster_security_configuration_enabled" {
   title       = "EMR clusters should have security configuration enabled"
   description = "Ensure EMR cluster have security configuration enabled. This control fails if security configuration is not enabled for EMR cluster."
   query       = query.emr_cluster_security_configuration_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -74,7 +74,7 @@ control "emr_cluster_encryption_at_rest_enabled" {
   title       = "EMR clusters encryption at rest should be enabled"
   description = "This control checks whether EMR clusters have encryption at rest enabled. The check fails if encryption at rest is not enabled as sensitive data should be protected."
   query       = query.emr_cluster_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -82,7 +82,7 @@ control "emr_cluster_encryption_in_transit_enabled" {
   title       = "EMR clusters encryption in transit should be enabled"
   description = "This control checks whether EMR clusters have encryption in transit enabled. This control fails if an EMR cluster isn't encrypted in transit."
   query       = query.emr_cluster_encryption_in_transit_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -90,7 +90,7 @@ control "emr_cluster_local_disk_encryption_enabled" {
   title       = "EMR clusters local disk encryption should be enabled"
   description = "This control checks whether EMR cluster have local disk encryption enabled. This control fails if an EMR cluster local disk isn't encrypted."
   query       = query.emr_cluster_local_disk_encryption_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -98,7 +98,7 @@ control "emr_cluster_local_disk_encrypted_with_cmk" {
   title       = "EMR cluster local disks should be encrypted with CMK"
   description = "Ensure EMR cluster local disk are encrypted using CMK. This control fails if an EMR cluster local disk isn't encrypted with CMK."
   query       = query.emr_cluster_local_disk_encrypted_with_cmk
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -106,7 +106,7 @@ control "emr_cluster_encryption_at_rest_with_sse_kms" {
   title       = "EMR clusters server side encryption (SSE KMS) enabled with KMS"
   description = "This control checks whether EMR clusters server side encryption (SSE KMS) is enabled with KMS. The check fails if encryption at rest is not enabled with SSE-KMS."
   query       = query.emr_cluster_encryption_at_rest_with_sse_kms
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 
@@ -114,7 +114,7 @@ control "emr_cluster_encryption_at_rest_with_cse_cmk" {
   title       = "EMR clusters client side encryption (CSE CMK) enabled with CMK"
   description = "This control checks whether EMR client side encryption (CSE CMK) is enabled with CMK. The check fails if encryption at rest is not enabled with CSE-CMK."
   query       = query.emr_cluster_encryption_at_rest_with_cse_cmk
-
+  severity    = "high"
   tags = local.conformance_pack_emr_common_tags
 }
 

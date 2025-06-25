@@ -8,7 +8,7 @@ control "drs_job_enabled" {
   title       = "DRS jobs should be enabled"
   description = "Ensure that DRS is enabled with jobs. This rule is non-compliant if DRS is not enabled with jobs for a particular region."
   query       = query.drs_job_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_drs_common_tags
 }
 

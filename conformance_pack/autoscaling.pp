@@ -8,7 +8,7 @@ control "autoscaling_group_uses_ec2_launch_template" {
   title       = "EC2 Auto Scaling groups should use EC2 launch templates"
   description = "This control checks whether an AWS EC2 Auto Scaling group is created from an EC2 launch template. This control fails if an AWS EC2 Auto Scaling group is not created with a launch template or if a launch template is not specified in a mixed instances policy."
   query       = query.autoscaling_group_uses_ec2_launch_template
-
+  severity    = "medium"
   tags = local.conformance_pack_autoscaling_common_tags
 }
 
@@ -16,7 +16,7 @@ control "autoscaling_launch_config_requires_imdsv2" {
   title       = "Auto Scaling group should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)"
   description = "This control checks whether IMDSv2 is enabled on all instances launched by AWS EC2 Auto Scaling groups. The control fails if the Instance Metadata Service (IMDS) version is not included in the launch configuration or if both IMDSv1 and IMDSv2 are enabled."
   query       = query.autoscaling_launch_config_requires_imdsv2
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     nist_csf     = "true"
     pci_dss_v321 = "true"
@@ -28,7 +28,7 @@ control "autoscaling_group_with_lb_use_health_check" {
   title       = "Auto Scaling groups with a load balancer should use health checks"
   description = "The Elastic Load Balancer (ELB) health checks for AWS Elastic Compute Cloud (AWS EC2) Auto Scaling groups support maintenance of adequate capacity and availability."
   query       = query.autoscaling_group_with_lb_use_health_check
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     cis_controls_v8_ig1                    = "true"
     fedramp_low_rev_4                      = "true"
@@ -50,7 +50,7 @@ control "autoscaling_launch_config_public_ip_disabled" {
   title       = "Auto Scaling launch config public IP should be disabled"
   description = "Ensure that AWS EC2 Auto Scaling groups have public IP addresses enabled through Launch Configurations. This rule is non-compliant if the Launch Configuration for an Auto Scaling group has AssociatePublicIpAddress set to 'true'."
   query       = query.autoscaling_launch_config_public_ip_disabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -73,7 +73,7 @@ control "autoscaling_group_no_suspended_process" {
   title       = "Auto Scaling groups should not have any suspended processes"
   description = "Ensure that there are no Auto Scaling Groups (ASGs) with suspended processes provisioned in your AWS account in order to avoid disrupting the auto scaling workflow."
   query       = query.autoscaling_group_no_suspended_process
-
+  severity    = "medium"
   tags = local.conformance_pack_autoscaling_common_tags
 }
 
@@ -81,7 +81,7 @@ control "autoscaling_group_multiple_az_configured" {
   title       = "EC2 auto scaling groups should cover multiple availability zones"
   description = "This control checks whether an AWS EC2 Auto Scaling group spans multiple availability zones. The control fails if an auto scaling group does not span multiple availability zones."
   query       = query.autoscaling_group_multiple_az_configured
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     nist_csf = "true"
   })
@@ -91,7 +91,7 @@ control "autoscaling_use_multiple_instance_types_in_multiple_az" {
   title       = "EC2 auto scaling groups should use multiple instance types in multiple availability zones"
   description = "This control checks whether an AWS EC2 Auto Scaling group uses multiple instance types. The control fails if the Auto Scaling group has only one instance type defined."
   query       = query.autoscaling_use_multiple_instance_types_in_multiple_az
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     nist_csf = "true"
   })
@@ -101,7 +101,7 @@ control "autoscaling_launch_config_hop_limit" {
   title       = "EC2 auto scaling group launch configurations should not have metadata response hop limit greater than 1"
   description = "This control checks the number of network hops that a metadata token can travel. The control fails if the metadata response hop limit is greater than 1."
   query       = query.autoscaling_launch_config_hop_limit
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_autoscaling_common_tags, {
     nist_csf = "true"
   })
@@ -111,7 +111,7 @@ control "autoscaling_ec2_launch_configuration_no_sensitive_data" {
   title       = "EC2 auto scaling group launch configurations user data should not have any sensitive data"
   description = "Ensure that sensitive information is not included in the user data of the launch configuration. It is recommended to utilize Secrets Manager as an alternative for securely managing sensitive data."
   query       = query.autoscaling_ec2_launch_configuration_no_sensitive_data
-
+  severity    = "medium"
   tags = local.conformance_pack_autoscaling_common_tags
 }
 
@@ -119,7 +119,7 @@ control "autoscaling_group_propagate_tags_to_ec2_instance_enabled" {
   title       = "Ensure EC2 Auto Scaling Groups Propagate Tags to EC2 Instances that it launches"
   description = "Tags can help with managing, identifying, organizing, searching for, and filtering resources. Additionally, tags can help with security and compliance. Tags can be propagated from an Auto Scaling group to the EC2 instances that it launches."
   query       = query.autoscaling_group_propagate_tags_to_ec2_instance_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_autoscaling_common_tags
 }
 

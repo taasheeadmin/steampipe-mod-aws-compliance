@@ -8,7 +8,7 @@ control "rds_db_cluster_copy_tags_to_snapshot_enabled" {
   title       = "RDS DB clusters should be configured to copy tags to snapshots"
   description = "This control checks whether RDS DB clusters are configured to copy all tags to snapshots when the snapshots are created."
   query       = query.rds_db_cluster_copy_tags_to_snapshot_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -16,7 +16,7 @@ control "rds_db_instance_copy_tags_to_snapshot_enabled" {
   title       = "RDS DB instances should be configured to copy tags to snapshots"
   description = "This control checks whether RDS DB instances are configured to copy all tags to snapshots when the snapshots are created."
   query       = query.rds_db_instance_copy_tags_to_snapshot_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -24,7 +24,7 @@ control "rds_db_instance_in_vpc" {
   title       = "RDS instances should be deployed in a VPC"
   description = "This control checks whether an RDS instance is deployed in a VPC (EC2-VPC)."
   query       = query.rds_db_instance_in_vpc
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -32,7 +32,7 @@ control "rds_db_cluster_events_subscription" {
   title       = "An RDS event notifications subscription should be configured for critical cluster events"
   description = "This control checks whether an AWS RDS event subscription exists that has notifications enabled for the following source type, event category key-value pairs."
   query       = query.rds_db_cluster_events_subscription
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -43,7 +43,7 @@ control "rds_db_instance_events_subscription" {
   title       = "An RDS event notifications subscription should be configured for critical database instance events"
   description = "This control checks whether an AWS RDS event subscription exists with notifications enabled for the following source type, event category key-value pairs."
   query       = query.rds_db_instance_events_subscription
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -54,7 +54,7 @@ control "rds_db_parameter_group_events_subscription" {
   title       = "An RDS event notifications subscription should be configured for critical database parameter group events"
   description = "This control checks whether an AWS RDS event subscription exists with notifications enabled for the following source type, event category key-value pairs."
   query       = query.rds_db_parameter_group_events_subscription
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -65,7 +65,7 @@ control "rds_db_security_group_events_subscription" {
   title       = "An RDS event notifications subscription should be configured for critical database security group events"
   description = "This control checks whether an AWS RDS event subscription exists with notifications enabled for the following source type, event category key-value pairs."
   query       = query.rds_db_security_group_events_subscription
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -76,7 +76,7 @@ control "rds_db_instance_and_cluster_no_default_port" {
   title       = "RDS databases and clusters should not use a database engine default port"
   description = "This control checks whether the RDS cluster or instance uses a port other than the default port of the database engine."
   query       = query.rds_db_instance_and_cluster_no_default_port
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -84,7 +84,7 @@ control "rds_db_cluster_encryption_at_rest_enabled" {
   title       = "RDS DB clusters should be encrypted at rest"
   description = "This control checks if an RDS DB cluster is encrypted at rest. The control fails if an RDS DB cluster isn't encrypted at rest."
   query       = query.rds_db_cluster_encryption_at_rest_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -92,7 +92,7 @@ control "rds_db_instance_backup_enabled" {
   title       = "RDS DB instance backup should be enabled"
   description = "The backup feature of AWS RDS creates backups of your databases and transaction logs."
   query       = query.rds_db_instance_backup_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -121,7 +121,7 @@ control "rds_db_instance_encryption_at_rest_enabled" {
   title       = "RDS DB instance encryption at rest should be enabled"
   description = "To help protect data at rest, ensure that encryption is enabled for your AWS Relational Database Service (AWS RDS) instances."
   query       = query.rds_db_instance_encryption_at_rest_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     audit_manager_control_tower            = "true"
     cis_controls_v8_ig1                    = "true"
@@ -149,7 +149,7 @@ control "rds_db_instance_multiple_az_enabled" {
   title       = "RDS DB instance multiple az should be enabled"
   description = "Multi-AZ support in AWS Relational Database Service (AWS RDS) provides enhanced availability and durability for database instances."
   query       = query.rds_db_instance_multiple_az_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -171,7 +171,7 @@ control "rds_db_instance_prohibit_public_access" {
   title       = "RDS DB instances should prohibit public access"
   description = "Manage access to resources in the AWS Cloud by ensuring that AWS Relational Database Service (AWS RDS) instances are not public."
   query       = query.rds_db_instance_prohibit_public_access
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -200,7 +200,7 @@ control "rds_db_snapshot_encrypted_at_rest" {
   title       = "RDS DB snapshots should be encrypted at rest"
   description = "Ensure that encryption is enabled for your AWS Relational Database Service (AWS RDS) snapshots."
   query       = query.rds_db_snapshot_encrypted_at_rest
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -225,7 +225,7 @@ control "rds_db_snapshot_prohibit_public_access" {
   title       = "RDS snapshots should prohibit public access"
   description = "Manage access to resources in the AWS Cloud by ensuring that AWS Relational Database Service (AWS RDS) instances are not public."
   query       = query.rds_db_snapshot_prohibit_public_access
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -254,7 +254,7 @@ control "rds_db_instance_logging_enabled" {
   title       = "Database logging should be enabled"
   description = "To help with logging and monitoring within your environment, ensure AWS Relational Database Service (AWS RDS) logging is enabled."
   query       = query.rds_db_instance_logging_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -283,7 +283,7 @@ control "rds_db_instance_in_backup_plan" {
   title       = "RDS DB instances should be in a backup plan"
   description = "To help with data back-up processes, ensure your AWS Relational Database Service (AWS RDS) instances are a part of an AWS Backup plan."
   query       = query.rds_db_instance_in_backup_plan
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -311,7 +311,7 @@ control "rds_db_instance_and_cluster_enhanced_monitoring_enabled" {
   title       = "RDS DB instance and cluster enhanced monitoring should be enabled"
   description = "Enable AWS Relational Database Service (AWS RDS) to help monitor AWS RDS availability. This provides detailed visibility into the health of your AWS RDS database instances."
   query       = query.rds_db_instance_and_cluster_enhanced_monitoring_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -331,7 +331,7 @@ control "rds_db_instance_deletion_protection_enabled" {
   title       = "RDS DB instances should have deletion protection enabled"
   description = "Ensure AWS Relational Database Service (AWS RDS) instances have deletion protection enabled."
   query       = query.rds_db_instance_deletion_protection_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -353,7 +353,7 @@ control "rds_db_instance_iam_authentication_enabled" {
   title       = "RDS DB instances should have iam authentication enabled"
   description = "Checks if an AWS Relational Database Service (AWS RDS) instance has AWS Identity and Access Management (IAM) authentication enabled."
   query       = query.rds_db_instance_iam_authentication_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     hipaa_final_omnibus_security_rule_2013 = "true"
@@ -370,7 +370,7 @@ control "rds_db_cluster_iam_authentication_enabled" {
   title       = "IAM authentication should be configured for RDS clusters"
   description = "Checks if an AWS RDS Cluster has AWS Identity and Access Management (IAM) authentication enabled. The rule is non-compliant if an RDS Cluster does not have IAM authentication enabled."
   query       = query.rds_db_cluster_iam_authentication_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     nist_800_171_rev_2   = "true"
@@ -383,7 +383,7 @@ control "rds_db_cluster_aurora_protected_by_backup_plan" {
   title       = "RDS Aurora clusters should be protected by backup plan"
   description = "Checks if AWS Aurora DB clusters are protected by a backup plan. The rule is non-compliant if the AWS Relational Database Service (AWS RDS) Database Cluster is not protected by a backup plan."
   query       = query.rds_db_cluster_aurora_protected_by_backup_plan
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     cisa_cyber_essentials                  = "true"
@@ -407,7 +407,7 @@ control "rds_db_instance_protected_by_backup_plan" {
   title       = "RDS DB instance should be protected by backup plan"
   description = "Ensure that AWS Relational Database Service (AWS RDS) instances are protected by a backup plan. The rule is non-compliant if the AWS RDS Database instance is not covered by a backup plan."
   query       = query.rds_db_instance_protected_by_backup_plan
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight                   = "true"
     fedramp_low_rev_4                      = "true"
@@ -430,7 +430,7 @@ control "rds_db_instance_automatic_minor_version_upgrade_enabled" {
   title       = "RDS DB instance automatic minor version upgrade should be enabled"
   description = "Ensure that AWS Relational Database Service (RDS) database instances are configured for automatic minor version upgrades. The rule is non-compliant if the value of 'autoMinorVersionUpgrade' is false."
   query       = query.rds_db_instance_automatic_minor_version_upgrade_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight  = "true"
     cisa_cyber_essentials = "true"
@@ -448,7 +448,7 @@ control "rds_db_cluster_deletion_protection_enabled" {
   description = "This control checks whether RDS clusters have deletion protection enabled. This control is intended for RDS DB instances. However, it can also generate findings for Aurora DB instances, Neptune DB instances, and AWS DocumentDB clusters. If these findings are not useful,then you can suppress them."
   severity    = "low"
   query       = query.rds_db_cluster_deletion_protection_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     nist_csf = "true"
   })
@@ -458,7 +458,7 @@ control "rds_db_instance_cloudwatch_logs_enabled" {
   title       = "RDS DB instances should be integrated with CloudWatch logs"
   description = "Use AWS CloudWatch to centrally collect and manage RDS DB instance activity."
   query       = query.rds_db_instance_cloudwatch_logs_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -466,7 +466,7 @@ control "rds_db_instance_ca_certificate_expires_7_days" {
   title       = "RDS DB instances CA certificates should not expire within next 7 days"
   description = "Ensure RDS DB instances CA certificates are not getting expired within the next 7 days."
   query       = query.rds_db_instance_ca_certificate_expires_7_days
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -474,7 +474,7 @@ control "rds_db_instance_no_default_admin_name" {
   title       = "RDS database instances should use a custom administrator username"
   description = "This control checks whether you've changed the administrative username for AWS Relational Database Service (AWS RDS) database instances from the default value. The control fails if the administrative username is set to the default value."
   query       = query.rds_db_instance_no_default_admin_name
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     nist_csf     = "true"
     pci_dss_v321 = "true"
@@ -485,7 +485,7 @@ control "rds_db_cluster_no_default_admin_name" {
   title       = "RDS database clusters should use a custom administrator username"
   description = "This control checks whether an AWS RDS database cluster has changed the admin username from its default value. This rule will fail if the admin username is set to the default value."
   query       = query.rds_db_cluster_no_default_admin_name
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     nist_csf     = "true"
     pci_dss_v321 = "true"
@@ -496,7 +496,7 @@ control "rds_db_cluster_aurora_backtracking_enabled" {
   title       = "RDS Aurora clusters should have backtracking enabled"
   description = "This control checks whether AWS Aurora clusters have backtracking enabled. Backups help you to recover more quickly from a security incident. They also strengthen the resilience of your systems. Aurora backtracking reduces the time to recover a database to a point in time. It does not require a database restore to so."
   query       = query.rds_db_cluster_aurora_backtracking_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -507,7 +507,7 @@ control "rds_db_cluster_multiple_az_enabled" {
   title       = "RDS DB clusters should be configured for multiple Availability Zones"
   description = "This control checks whether high availability is enabled for your RDS DB clusters. RDS DB clusters should be configured for multiple Availability Zones to ensure availability of the data that is stored."
   query       = query.rds_db_cluster_multiple_az_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     nist_csf = "true"
   })
@@ -517,7 +517,7 @@ control "rds_db_instance_connections_encryption_enabled" {
   title       = "RDS DB instances connections should be encrypted"
   description = "This control checks if RDS DB instance connections are encrypted. Secure Sockets Layer (SSL) is used to encrypt between client applications and AWS RDS DB instances running Microsoft SQL Server or PostgreSQL."
   query       = query.rds_db_instance_connections_encryption_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -525,7 +525,7 @@ control "rds_db_cluster_aurora_postgres_not_exposed_to_local_file_read_vulnerabi
   title       = "RDS Aurora PostgreSQL clusters should not be exposed to local file read vulnerability"
   description = "This control checks whether AWS Aurora PostgreSQL clusters are exposed to local file read vulnerability by ensuring that AWS RDS PostgreSQL instances use a non-vulnerable version of the log_fdw."
   query       = query.rds_db_cluster_aurora_postgres_not_exposed_to_local_file_read_vulnerability
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -533,7 +533,7 @@ control "rds_db_cluster_encrypted_with_cmk" {
   title       = "RDS DB clusters should be encrypted with CMK"
   description = "Ensure RDS DB cluster is encrypted using CMK. The rule is non-compliant if the RDS DB cluster is not encrypted using CMK."
   query       = query.rds_db_cluster_encrypted_with_cmk
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -541,7 +541,7 @@ control "rds_db_instance_backup_retention_period_less_than_7" {
   title       = "RDS DB instances backup retention period should be greater than or equal to 7"
   description = "Ensure RDS DB instance backup retention period is greater than or equal to 7."
   query       = query.rds_db_instance_backup_retention_period_less_than_7
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -549,7 +549,7 @@ control "rds_db_instance_no_public_subnet" {
   title       = "RDS DB instances should not use public subnet"
   description = "This control checks if RDS DB instance is configured with public subnet as there is a risk of exposing sensitive data."
   query       = query.rds_db_instance_no_public_subnet
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -557,7 +557,7 @@ control "rds_db_instance_postgres_not_exposed_to_local_file_read_vulnerability" 
   title       = "RDS PostgreSQL DB instances should not be exposed to local file read vulnerability"
   description = "This control checks whether AWS PostgreSQL DB isntance are exposed to local file read vulnerability by ensuring that AWS RDS PostgreSQL instances use a non-vulnerable version of the log_fdw."
   query       = query.rds_db_instance_postgres_not_exposed_to_local_file_read_vulnerability
-
+  severity    = "critical"
   tags = local.conformance_pack_rds_common_tags
 }
 
@@ -565,7 +565,7 @@ control "rds_db_cluster_automatic_minor_version_upgrade_enabled" {
   title       = "RDS DB clusters should have automatic minor version upgrade enabled"
   description = "This control checks if automatic minor version upgrade is enabled for an Amazon RDS database cluster. The control fails if automatic minor version upgrade isn't enabled for an RDS cluster."
   query       = query.rds_db_cluster_automatic_minor_version_upgrade_enabled
-
+  severity    = "critical"
   tags = local.foundational_security_rds_common_tags
 }
 
@@ -573,7 +573,7 @@ control "rds_db_cluster_aurora_mysql_audit_logging_enabled" {
   title       = "Aurora MySQL DB clusters should have audit logging enabled"
   description = "This control checks whether an Amazon Aurora MySQL DB cluster has audit logging enabled. The control fails if an Aurora MySQL DB cluster doesn't have audit logging enabled."
   query       = query.rds_db_cluster_aurora_mysql_audit_logging_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_rds_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

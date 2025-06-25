@@ -7,7 +7,7 @@ locals {
 control "acm_certificate_expires_30_days" {
   title       = "ACM certificates should not expire within 30 days"
   description = "Ensure network integrity is protected by ensuring X509 certificates are issued by AWS ACM."
-  severity    = "high"
+  severity    = "medium"
   query       = query.acm_certificate_expires_30_days
 
   tags = merge(local.conformance_pack_acm_common_tags, {
@@ -34,7 +34,7 @@ control "acm_certificate_transparency_logging_enabled" {
   title       = "ACM certificates should have transparency logging enabled"
   description = "Ensure ACM certificates transparency logging is enabled as certificate transparency logging guards against SSL/TLS certificates issued by mistake or by a compromised certificate authority."
   query       = query.acm_certificate_transparency_logging_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_acm_common_tags
 }
 
@@ -42,7 +42,7 @@ control "acm_certificate_no_wildcard_domain_name" {
   title       = "ACM certificates should not use wildcard certificates"
   description = "Ensure that ACM single domain name certificates are used instead of wildcard certificates within your AWS account in order to follow security best practices and protect each domain/subdomain with its own unique private key."
   query       = query.acm_certificate_no_wildcard_domain_name
-
+  severity    = "medium"
   tags = local.conformance_pack_acm_common_tags
 }
 
@@ -50,7 +50,7 @@ control "acm_certificate_not_expired" {
   title       = "Ensure that all the expired ACM certificates are removed"
   description = "This control ensures that all expired ACM certificates are removed from AWS account."
   query       = query.acm_certificate_not_expired
-
+  severity    = "medium"
   tags = local.conformance_pack_acm_common_tags
 }
 
@@ -58,7 +58,7 @@ control "acm_certificate_no_failed_certificate" {
   title       = "Ensure that ACM certificates are not in failed state"
   description = "This control ensures that ACM certificates are not in failed state."
   query       = query.acm_certificate_no_failed_certificate
-
+  severity    = "medium"
   tags = local.conformance_pack_acm_common_tags
 }
 
@@ -66,7 +66,7 @@ control "acm_certificate_no_pending_validation_certificate" {
   title       = "Ensure that ACM certificates are not in pending validation state"
   description = "This control ensures that ACM certificates are not in pending validation state. When certificates are not validated within 72 hours after the request is made, those certificates become invalid."
   query       = query.acm_certificate_no_pending_validation_certificate
-
+  severity    = "medium" 
   tags = local.conformance_pack_acm_common_tags
 }
 
@@ -74,7 +74,7 @@ control "acm_certificate_rsa_key_length_2048_bits_or_greater" {
   title       = "RSA certificates managed by ACM should use a key length of at least 2,048 bits"
   description = "This control checks whether RSA certificates managed by AWS Certificate Manager use a key length of at least 2,048 bits. The control fails if the key length is smaller than 2,048 bits."
   query       = query.acm_certificate_rsa_key_length_2048_bits_or_greater
-
+  severity    = "medium"
   tags = local.conformance_pack_acm_common_tags
 }
 

@@ -8,7 +8,7 @@ control "guardduty_enabled" {
   title       = "GuardDuty should be enabled"
   description = "AWS GuardDuty can help to monitor and detect potential cybersecurity events by using threat intelligence feeds."
   query       = query.guardduty_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_guardduty_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -35,7 +35,7 @@ control "guardduty_finding_archived" {
   title       = "GuardDuty findings should be archived"
   description = "AWS GuardDuty helps you understand the impact of an incident by classifying findings by severity: low, medium, and high."
   query       = query.guardduty_finding_archived
-
+  severity    = "high"
   tags = merge(local.conformance_pack_guardduty_common_tags, {
     fedramp_low_rev_4                      = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -58,7 +58,7 @@ control "guardduty_no_high_severity_findings" {
   title       = "GuardDuty Detector should not have high severity findings"
   description = "GuardDuty generates a finding whenever it detects unexpected and potentially malicious activity in your AWS environment. If critical findings are not addressed threats can spread in the environment. This rule is non-compliant if there are high severity findings."
   query       = query.guardduty_no_high_severity_findings
-
+  severity    = "high"
   tags = local.conformance_pack_guardduty_common_tags
 }
 
@@ -66,7 +66,7 @@ control "guardduty_centrally_configured" {
   title       = "GuardDuty Detector should be centrally configured"
   description = "Ensure that GuardDuty is centrally configured, if GuardDuty is not under central management, it becomes impossible to centrally manage GuardDuty findings, settings, and member accounts."
   query       = query.guardduty_centrally_configured
-
+  severity    = "high"
   tags = local.conformance_pack_guardduty_common_tags
 }
 

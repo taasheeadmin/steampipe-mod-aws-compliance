@@ -8,7 +8,7 @@ control "organizational_tag_policies_enabled" {
   title       = "Ensure Tag Policies are enabled"
   description = "Tag policies help you standardize tags on all tagged resources across your organization"
   query       = query.organizational_tag_policies_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_organization_common_tags
 }
 

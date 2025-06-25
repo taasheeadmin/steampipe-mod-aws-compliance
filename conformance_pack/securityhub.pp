@@ -8,7 +8,7 @@ control "securityhub_enabled" {
   title       = "AWS Security Hub should be enabled for an AWS Account"
   description = "AWS Security Hub helps to monitor unauthorized personnel, connections, devices, and software. AWS Security Hub aggregates, organizes, and prioritizes the security alerts, or findings, from multiple AWS services."
   query       = query.securityhub_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_securityhub_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"

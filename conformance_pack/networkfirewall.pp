@@ -8,7 +8,7 @@ control "networkfirewall_stateless_rule_group_not_empty" {
   title       = "Stateless network firewall rule group should not be empty"
   description = "A rule group contains rules that define how your firewall processes traffic in your VPC. An empty stateless rule group when present in a firewall policy might give the impression that the rule group will process traffic. However, when the stateless rule group is empty, it does not process traffic."
   query       = query.networkfirewall_stateless_rule_group_not_empty
-
+  severity    = "high"
   tags = merge(local.conformance_pack_networkfirewall_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -19,7 +19,7 @@ control "networkfirewall_firewall_policy_rule_group_not_empty" {
   title       = "Network Firewall policies should have at least one rule group associated"
   description = "This control checks whether a Network Firewall policy has any stateful or stateless rule groups associated. The control fails if stateless or stateful rule groups are not assigned."
   query       = query.networkfirewall_firewall_policy_rule_group_not_empty
-
+  severity    = "high"
   tags = merge(local.conformance_pack_networkfirewall_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -30,7 +30,7 @@ control "networkfirewall_firewall_policy_default_stateless_action_check_full_pac
   title       = "The default stateless action for Network Firewall policies should be drop or forward for full packets"
   description = "A firewall policy defines how your firewall monitors and handles traffic in AWS VPC. You configure stateless and stateful rule groups to filter packets and traffic flows. Defaulting to Pass can allow unintended traffic."
   query       = query.networkfirewall_firewall_policy_default_stateless_action_check_full_packets
-
+  severity    = "high"
   tags = merge(local.conformance_pack_networkfirewall_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -41,7 +41,7 @@ control "networkfirewall_firewall_policy_default_stateless_action_check_fragment
   title       = "The default stateless action for Network Firewall policies should be drop or forward for fragmented packets"
   description = "This control checks whether the default stateless action for fragmented packets for a Network Firewall policy is drop or forward. The control passes if Drop or Forward is selected, and fails if Pass is selected."
   query       = query.networkfirewall_firewall_policy_default_stateless_action_check_fragmented_packets
-
+  severity    = "high"
   tags = merge(local.conformance_pack_networkfirewall_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -52,7 +52,7 @@ control "networkfirewall_firewall_in_vpc" {
   title       = "Networkfirewall firewall should be in a VPC"
   description = "Deploy AWS Networkfirewall firewall within an AWS Virtual Private Cloud (AWS VPC) for a secure communication between a function and other services within the AWS VPC."
   query       = query.networkfirewall_firewall_in_vpc
-
+  severity    = "high"
   tags = local.conformance_pack_networkfirewall_common_tags
 }
 
@@ -60,7 +60,7 @@ control "networkfirewall_firewall_deletion_protection_enabled" {
   title       = "Network Firewall firewalls should have deletion protection enabled"
   description = "This control checks whether an AWS Network Firewall firewall has deletion protection enabled. The control fails if deletion protection isn't enabled for a firewall."
   query       = query.networkfirewall_firewall_deletion_protection_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_networkfirewall_common_tags
 }
 
@@ -68,7 +68,7 @@ control "networkfirewall_firewall_logging_enabled" {
   title       = "Network Firewall logging should be enabled"
   description = "This control checks whether logging is enabled for an AWS Network Firewall firewall. The control fails if logging isn't enabled for at least one log type or if the logging destination doesn't exist."
   query       = query.networkfirewall_firewall_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_networkfirewall_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

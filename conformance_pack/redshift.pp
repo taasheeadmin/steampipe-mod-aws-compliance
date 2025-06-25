@@ -8,7 +8,7 @@ control "redshift_cluster_automatic_upgrade_major_versions_enabled" {
   title       = "AWS Redshift should have automatic upgrades to major versions enabled"
   description = "This control checks whether automatic major version upgrades are enabled for the AWS Redshift cluster."
   query       = query.redshift_cluster_automatic_upgrade_major_versions_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_redshift_common_tags
 }
 
@@ -16,7 +16,7 @@ control "redshift_cluster_encryption_in_transit_enabled" {
   title       = "Redshift cluster encryption in transit should be enabled"
   description = "Ensure that your AWS Redshift clusters require TLS/SSL encryption to connect to SQL clients."
   query       = query.redshift_cluster_encryption_in_transit_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -43,7 +43,7 @@ control "redshift_cluster_encryption_logging_enabled" {
   title       = "Redshift cluster audit logging and encryption should be enabled"
   description = "To protect data at rest, ensure that encryption is enabled for your AWS Redshift clusters. You must also ensure that required configurations are deployed on AWS Redshift clusters. The audit logging should be enabled to provide information about connections and user activities in the database."
   query       = query.redshift_cluster_encryption_logging_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -73,7 +73,7 @@ control "redshift_cluster_prohibit_public_access" {
   title       = "Redshift clusters should prohibit public access"
   description = "Manage access to resources in the AWS Cloud by ensuring that AWS Redshift clusters are not public."
   query       = query.redshift_cluster_prohibit_public_access
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -101,7 +101,7 @@ control "redshift_cluster_automatic_snapshots_min_7_days" {
   title       = "AWS Redshift clusters should have automatic snapshots enabled"
   description = "This control checks whether AWS Redshift clusters have automated snapshots enabled. It also checks whether the snapshot retention period is greater than or equal to seven."
   query       = query.redshift_cluster_automatic_snapshots_min_7_days
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -130,7 +130,7 @@ control "redshift_cluster_kms_enabled" {
   title       = "AWS Redshift clusters should be encrypted with KMS"
   description = "Ensure that AWS Redshift clusters are using a specified AWS Key Management Service (AWS KMS) key for encryption. The rule is compliant if encryption is enabled and the cluster is encrypted with the key provided in the kmsKeyArn parameter. The rule is non-compliant if the cluster is not encrypted or encrypted with another key."
   query       = query.redshift_cluster_kms_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -151,7 +151,7 @@ control "redshift_cluster_maintenance_settings_check" {
   title       = "AWS Redshift should have required maintenance settings"
   description = "Ensure whether AWS Redshift clusters have the specified maintenance settings. Redshift clusters `allowVersionUpgrade` should be set to `true` and `automatedSnapshotRetentionPeriod` should be greater than 7."
   query       = query.redshift_cluster_maintenance_settings_check
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -171,7 +171,7 @@ control "redshift_cluster_enhanced_vpc_routing_enabled" {
   title       = "AWS Redshift enhanced VPC routing should be enabled"
   description = "Ensure that AWS Redshift cluster has 'enhancedVpcRouting' enabled. The rule is non-compliant if 'enhancedVpcRouting' is not enabled or if the configuration.enhancedVpcRouting field is 'false'."
   query       = query.redshift_cluster_enhanced_vpc_routing_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     ffiec                                  = "true"
     gxp_21_cfr_part_11                     = "true"
@@ -187,7 +187,7 @@ control "redshift_cluster_no_default_admin_name" {
   title       = "AWS Redshift clusters should not use the default Admin username"
   description = "This control checks whether a AWS Redshift cluster has changed the admin username from its default value. This control will fail if the admin username for a Redshift cluster is set to awsuser."
   query       = query.redshift_cluster_no_default_admin_name
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     nist_csf     = "true"
     pci_dss_v321 = "true"
@@ -198,7 +198,7 @@ control "redshift_cluster_audit_logging_enabled" {
   title       = "AWS Redshift audit logging should be enabled"
   description = "This control ensures if redshift clusters are logging audits to a specific bucket. The rule is no compliant if audit logging is not enabled for a redshift cluster or if the 'bucketNames' parameter is provided but the audit logging destination does not match."
   query       = query.redshift_cluster_audit_logging_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     acsc_essential_eight = "true"
     gxp_21_cfr_part_11   = "true"
@@ -215,7 +215,7 @@ control "redshift_cluster_no_default_database_name" {
   title       = "Redshift clusters should not use the default database name"
   description = "This control checks whether an AWS Redshift cluster has changed the database name from its default value. The control will fail if the database name for a Redshift cluster is set to dev."
   query       = query.redshift_cluster_no_default_database_name
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_redshift_common_tags, {
     nist_csf = "true"
   })
@@ -225,7 +225,7 @@ control "redshift_cluster_encrypted_with_cmk" {
   title       = "Redshift clusters should be encrypted with CMK"
   description = "Ensure Redshift cluster is encrypted using CMK. The rule is non-compliant if the Redshift clusters is not encrypted using CMK."
   query       = query.redshift_cluster_encrypted_with_cmk
-
+  severity    = "critical"
   tags = local.conformance_pack_redshift_common_tags
 }
 

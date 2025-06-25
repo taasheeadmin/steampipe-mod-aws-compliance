@@ -8,7 +8,7 @@ control "elastic_beanstalk_enhanced_health_reporting_enabled" {
   title       = "Elastic Beanstalk enhanced health reporting should be enabled"
   description = "AWS Elastic Beanstalk enhanced health reporting enables a more rapid response to changes in the health of the underlying infrastructure. These changes could result in a lack of availability of the application. Elastic Beanstalk enhanced health reporting provides a status descriptor to gauge the severity of the identified issues and identify possible causes to investigate."
   query       = query.elastic_beanstalk_enhanced_health_reporting_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_elasticbeanstalk_common_tags, {
     fedramp_low_rev_4                      = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -24,7 +24,7 @@ control "elastic_beanstalk_environment_logs_to_cloudwatch" {
   title       = "Elastic Beanstalk environments should have enhanced health reporting enabled"
   description = "This control checks whether an AWS Elastic Beanstalk environment is configured to send logs to CloudWatch Logs. The control fails if the environment isn't configured to send logs to CloudWatch Logs."
   query       = query.elastic_beanstalk_environment_logs_to_cloudwatch
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_elasticbeanstalk_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -35,7 +35,7 @@ control "elastic_beanstalk_environment_managed_updates_enabled" {
   title       = "Elastic Beanstalk environment should have managed updates enabled"
   description = "This control checks whether managed platform updates in an AWS Elastic Beanstalk environment is enabled. The rule is COMPLIANT if the value for ManagedActionsEnabled is set to true. The rule is NON_COMPLIANT if the value for ManagedActionsEnabled is set to false, or if a parameter is provided and its value does not match the existing configurations."
   query       = query.elastic_beanstalk_environment_managed_updates_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_elasticbeanstalk_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

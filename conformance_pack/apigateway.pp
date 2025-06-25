@@ -8,7 +8,7 @@ control "api_gatewayv2_route_authorization_type_configured" {
   title       = "API Gateway routes should specify an authorization type"
   description = "This control checks if AWS API Gateway routes have an authorization type. The control fails if the API Gateway route does not specify an authorization type."
   query       = query.api_gatewayv2_route_authorization_type_configured
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     pci_dss_v40 = "true"
   })
@@ -18,7 +18,7 @@ control "gatewayv2_stage_access_logging_enabled" {
   title       = "Access logging should be configured for API Gateway V2 Stages"
   description = "This control checks if AWS API Gateway V2 stages have access logging configured. This control fails if access log settings aren't defined."
   query       = query.gatewayv2_stage_access_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -29,7 +29,7 @@ control "apigateway_stage_cache_encryption_at_rest_enabled" {
   title       = "API Gateway stage cache encryption at rest should be enabled"
   description = "To help protect data at rest, ensure encryption is enabled for your API Gateway stage's cache."
   query       = query.apigateway_stage_cache_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -54,7 +54,7 @@ control "apigateway_stage_logging_enabled" {
   title       = "API Gateway stage logging should be enabled"
   description = "API Gateway logging displays detailed views of users who accessed the API and the way they accessed the API."
   query       = query.apigateway_stage_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -82,7 +82,7 @@ control "apigateway_rest_api_stage_use_ssl_certificate" {
   title       = "API Gateway stage should uses SSL certificate"
   description = "Ensure that a REST API stage uses a Secure Sockets Layer (SSL) certificate. This rule is compliant if the REST API stage does not have an associated SSL certificate."
   query       = query.apigateway_rest_api_stage_use_ssl_certificate
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -103,7 +103,7 @@ control "apigateway_rest_api_stage_xray_tracing_enabled" {
   title       = "API Gateway REST API stages should have AWS X-Ray tracing enabled"
   description = "This control checks whether AWS X-Ray active tracing is enabled for your AWS API Gateway REST API stages."
   query       = query.apigateway_rest_api_stage_xray_tracing_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     acsc_essential_eight                   = "true"
     hipaa_final_omnibus_security_rule_2013 = "true"
@@ -116,7 +116,7 @@ control "apigateway_stage_use_waf_web_acl" {
   title       = "API Gateway stage should be associated with waf"
   description = "Ensure that an AWS API Gateway API stage is using a WAF Web ACL. This rule is non-compliant if an AWS WAF Web ACL is not used."
   query       = query.apigateway_stage_use_waf_web_acl
-
+  severity    = "high"
   tags = merge(local.conformance_pack_apigateway_common_tags, {
     cisa_cyber_essentials  = "true"
     fedramp_low_rev_4      = "true"
@@ -136,7 +136,7 @@ control "apigateway_rest_api_authorizers_configured" {
   title       = "API Gateway stages should have authorizers configured"
   description = "Ensure API Gateway stages have authorizers configured."
   query       = query.apigateway_rest_api_authorizers_configured
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 
@@ -144,7 +144,7 @@ control "apigateway_rest_api_endpoint_restrict_public_access" {
   title       = "API Gateway REST API endpoint type should be configured to private"
   description = "This control checks whether API Gateway endpoint is public or private. This rule is non-compliant if API Gateway endpoint is public."
   query       = query.apigateway_rest_api_endpoint_restrict_public_access
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 
@@ -152,7 +152,7 @@ control "api_gatewayv2_route_authorizer_configured" {
   title       = "API Gateway V2 authorizer should be configured"
   description = "This control checks whether API Gateway V2 has an authorizer configured. This rule is non-compliant if API Gateway V2 has no authorizers configured."
   query       = query.api_gatewayv2_route_authorizer_configured
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 
@@ -160,7 +160,7 @@ control "api_gateway_rest_api_public_endpoint_with_authorizer" {
   title       = "API Gateway REST API public endpoints should be configured with authorizer"
   description = "Ensure API Gateway REST API public endpoint is configured with authorizer. This rule is non-compliant if API Gateway REST API public endpoint has no authorizer configured."
   query       = query.api_gateway_rest_api_public_endpoint_with_authorizer
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 
@@ -168,7 +168,7 @@ control "api_gateway_method_authorization_type_configured" {
   title       = "API Gateway methods authorizer should be configured"
   description = "This control checks whether API Gateway method has an authorizer configured. This rule is non-compliant if API Gateway method has no authorizers configured."
   query       = query.api_gateway_method_authorization_type_configured
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 
@@ -176,7 +176,7 @@ control "api_gateway_method_request_parameter_validated" {
   title       = "API Gateway methods request parameter should be validated"
   description = "This control checks whether API Gateway method request parameter is validated. This rule is non-compliant if API Gateway method request parameter is not validated."
   query       = query.api_gateway_method_request_parameter_validated
-
+  severity    = "high"
   tags = local.conformance_pack_apigateway_common_tags
 }
 

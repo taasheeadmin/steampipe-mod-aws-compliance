@@ -8,7 +8,7 @@ control "docdb_cluster_encryption_at_rest_enabled" {
   title       = "AWS DocumentDB clusters should be encrypted at rest"
   description = "This control checks whether an AWS DocumentDB cluster is encrypted at rest. The control fails if an AWS DocumentDB cluster isn't encrypted at rest."
   query       = query.docdb_cluster_encryption_at_rest_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_docdb_common_tags
 }
 
@@ -16,7 +16,7 @@ control "docdb_cluster_backup_retention_period_7_days" {
   title       = "AWS DocumentDB clusters should have an adequate backup retention period"
   description = "This control checks whether an AWS DocumentDB cluster has a backup retention period greater than or equal to 7 days. The control fails if the backup retention period is less than 7 days."
   query       = query.docdb_cluster_backup_retention_period_7_days
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_docdb_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -27,7 +27,7 @@ control "docdb_cluster_instance_logging_enabled" {
   title       = "DocumentDB instance logging should be enabled"
   description = "To help with logging and monitoring within your environment, ensure AWS DocumentDB instance logging is enabled."
   query       = query.docdb_cluster_instance_logging_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_docdb_common_tags
 }
 
@@ -35,7 +35,7 @@ control "docdb_cluster_instance_encryption_at_rest_enabled" {
   title       = "DocumentDB instance should be encrypted at rest"
   description = "This control checks whether an DocumentDB instance is encrypted at rest. The control fails if an DocumentDB instance isn't encrypted at rest."
   query       = query.docdb_cluster_instance_encryption_at_rest_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_docdb_common_tags
 }
 
@@ -43,7 +43,7 @@ control "docdb_cluster_deletion_protection_enabled" {
   title       = "DocumentDB clusters should have deletion protection enabled"
   description = "Ensure DocumentDB clusters have deletion protection enabled."
   query       = query.docdb_cluster_deletion_protection_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_docdb_common_tags
 }
 
@@ -51,7 +51,7 @@ control "docdb_cluster_snapshot_restrict_public_access" {
   title       = "Amazon DocumentDB cluster snapshots should not be public"
   description = "This control checks whether Amazon DocumentDB cluster snapshots are public. The control fails if any existing Amazon DocumentDB cluster snapshots are public."
   query       = query.docdb_cluster_snapshot_restrict_public_access
-
+  severity    = "high"
   tags = merge(local.conformance_pack_docdb_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

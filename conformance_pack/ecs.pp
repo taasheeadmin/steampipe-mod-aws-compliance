@@ -8,7 +8,7 @@ control "ecs_cluster_container_instance_agent_connected" {
   title       = "ECS cluster container instances should have connected agent"
   description = "This control checks if ECS cluster container instances have connected agent. This control fails if the agent is not connected."
   query       = query.ecs_cluster_container_instance_agent_connected
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -16,7 +16,7 @@ control "ecs_service_not_publicly_accessible" {
   title       = "AWS ECS services should not have public IP addresses assigned to them automatically"
   description = "This control checks whether AWS ECS services are configured to automatically assign public IP addresses. This control fails if AssignPublicIP is enabled."
   query       = query.ecs_service_not_publicly_accessible
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -24,7 +24,7 @@ control "ecs_cluster_encryption_at_rest_enabled" {
   title       = "ECS clusters encryption at rest should be enabled"
   description = "This control checks whether ECS Clustes have encryption at rest enabled. The check fails if encryption at rest is not enabled as sensitive data should be protected."
   query       = query.ecs_cluster_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -32,7 +32,7 @@ control "ecs_cluster_instance_in_vpc" {
   title       = "ECS cluster instances should be in a VPC"
   description = "Deploy AWS ECS cluster instance within an AWS Virtual Private Cloud (AWS VPC) for a secure communication between a instance and other services within the AWS VPC."
   query       = query.ecs_cluster_instance_in_vpc
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -40,7 +40,7 @@ control "ecs_cluster_no_registered_container_instance" {
   title       = "At least one instance should be registered with ECS cluster"
   description = "This control ensures that at least one container instance is registered with an ECS cluster."
   query       = query.ecs_cluster_no_registered_container_instance
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -48,7 +48,7 @@ control "ecs_service_load_balancer_attached" {
   title       = "ECS services should be attached to a load balancer"
   description = "ECS service can be configured to use Elastic Load Balancing to distribute traffic evenly across the tasks in your service. It is recommended to use Application Load Balancers for your AWS ECS services so that you can take advantage of these latest features, unless your service requires a feature that is only available with Network Load Balancers or Classic Load Balancers."
   query       = query.ecs_service_load_balancer_attached
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 
@@ -56,7 +56,7 @@ control "ecs_task_definition_user_for_host_mode_check" {
   title       = "ECS task definition container definitions should be checked for host mode"
   description = "Check if AWS Elastic Container Service (AWS ECS) task definition with host networking mode has 'privileged' or 'user' container definitions.The rule is non-compliant for task definitions with host network mode and container definitions of privileged=false or empty and user=root or empty."
   query       = query.ecs_task_definition_user_for_host_mode_check
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -76,7 +76,7 @@ control "ecs_task_definition_logging_enabled" {
   title       = "ECS task definitions should have logging enabled"
   description = "Ensure logging is enabled for task definitions so that you can access your containerized application logs for debugging and auditing purposes. On top of centralized logging, these log drivers often include additional capabilities that are useful for operation."
   query       = query.ecs_task_definition_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -87,7 +87,7 @@ control "ecs_cluster_container_insights_enabled" {
   title       = "ECS clusters should have container insights enabled"
   description = "This control checks if ECS clusters use Container Insights. This control fails if Container Insights are not set up for a cluster."
   query       = query.ecs_cluster_container_insights_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -98,7 +98,7 @@ control "ecs_task_definition_container_non_privileged" {
   title       = "ECS containers should run as non-privileged"
   description = "This control checks if the privileged parameter in the container definition of AWS ECS Task Definitions is set to true. The control fails if this parameter is equal to true."
   query       = query.ecs_task_definition_container_non_privileged
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -110,7 +110,7 @@ control "ecs_task_definition_container_readonly_root_filesystem" {
   title       = "ECS containers should be limited to read-only access to root filesystems"
   description = "This control checks if ECS containers are limited to read-only access to mounted root filesystems. This control fails if the ReadonlyRootFilesystem parameter in the container definition of ECS task definitions is set to false."
   query       = query.ecs_task_definition_container_readonly_root_filesystem
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -122,7 +122,7 @@ control "ecs_task_definition_container_environment_no_secret" {
   title       = "ECS task definition containers should not have secrets passed as environment variables"
   description = "This control checks if the key value of any variables in the environment parameter of container definitions includes AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, or ECS_ENGINE_AUTH_DATA. This control fails if a single environment variable in any container definition equals AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, or ECS_ENGINE_AUTH_DATA. This control does not cover environmental variables passed in from other locations such as AWS S3."
   query       = query.ecs_task_definition_container_environment_no_secret
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -133,7 +133,7 @@ control "ecs_task_definition_no_host_pid_mode" {
   title       = "ECS task definitions should not share the host's process namespace"
   description = "This control checks if AWS ECS task definitions are configured to share a host's process namespace with its containers. The control fails if the task definition shares the host's process namespace with the containers running on it."
   query       = query.ecs_task_definition_no_host_pid_mode
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -144,7 +144,7 @@ control "ecs_service_fargate_using_latest_platform_version" {
   title       = "ECS fargate services should run on the latest fargate platform version"
   description = "This control checks if AWS ECS Fargate services are running the latest Fargate platform version. This control fails if the platform version is not the latest."
   query       = query.ecs_service_fargate_using_latest_platform_version
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -156,7 +156,7 @@ control "ecs_task_definition_no_root_user" {
   title       = "ECS task definitions should not use root user."
   description = "This control checks if ECS task definitions have root user. This control fails if the ECS task definitions have root user."
   query       = query.ecs_task_definition_no_root_user
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ecs_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -167,7 +167,7 @@ control "ecs_cluster_no_active_services_count" {
   title       = "ECS cluster should be configured with active services"
   description = "This control checks if ECS cluster have active services. This control fails if ECS cluster does not have any active services."
   query       = query.ecs_cluster_no_active_services_count
-
+  severity    = "high"
   tags = local.conformance_pack_ecs_common_tags
 }
 

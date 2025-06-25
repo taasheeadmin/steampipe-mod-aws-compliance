@@ -8,7 +8,7 @@ control "ec2_instance_termination_protection_enabled" {
   title       = "AWS EC2 instances should have termination protection enabled"
   description = "This control checks whether termination protection is enabled for EC2 instances. The control fails if termination protection is not enabled for an EC2 instance."
   query       = query.ec2_instance_termination_protection_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -16,7 +16,7 @@ control "ec2_launch_template_not_publicly_accessible" {
   title       = "AWS EC2 launch templates should not assign public IPs to network interfaces"
   description = "This control checks if AWS EC2 launch templates are configured to assign public IP addresses to network interfaces upon launch. The control fails if an EC2 launch template is configured to assign a public IP address to network interfaces or if there is at least one network interface that has a public IP address."
   query       = query.ec2_launch_template_not_publicly_accessible
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -24,6 +24,7 @@ control "ec2_ebs_default_encryption_enabled" {
   title       = "EBS default encryption should be enabled"
   description = "[DEPRECATED] This control has been deprecated and will be removed in a future release, use the ebs_encryption_by_default_enabled control instead. To help protect data at rest, ensure that encryption is enabled for your AWS Elastic Block Store (AWS EBS) volumes."
   query       = query.ec2_ebs_default_encryption_enabled
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -46,7 +47,7 @@ control "ec2_instance_detailed_monitoring_enabled" {
   title       = "EC2 instance detailed monitoring should be enabled"
   description = "Enable this rule to help improve AWS Elastic Compute Cloud (AWS EC2) instance monitoring on the AWS EC2 console, which displays monitoring graphs with a 1-minute period for the instance."
   query       = query.ec2_instance_detailed_monitoring_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     acsc_essential_eight                   = "true"
     fedramp_low_rev_4                      = "true"
@@ -66,7 +67,7 @@ control "ec2_instance_not_use_multiple_enis" {
   title       = "EC2 instances should not use multiple ENIs"
   description = "This control checks whether an EC2 instance uses multiple Elastic Network Interfaces (ENIs) or Elastic Fabric Adapters (EFAs). This control passes if a single network adapter is used. The control includes an optional parameter list to identify the allowed ENIs."
   query       = query.ec2_instance_not_use_multiple_enis
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     nist_csf = "true"
   })
@@ -76,7 +77,7 @@ control "ec2_instance_no_amazon_key_pair" {
   title       = "EC2 instances should not use key pairs in running state"
   description = "This control checks whether running EC2 instances are using key pairs. The control fails if a running EC2 instance uses a key pair."
   query       = query.ec2_instance_no_amazon_key_pair
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -87,7 +88,7 @@ control "ec2_instance_in_vpc" {
   title       = "EC2 instances should be in a VPC"
   description = "Deploy AWS Elastic Compute Cloud (AWS EC2) instances within an AWS Virtual Private Cloud (AWS VPC) to enable secure communication between an instance and other services within the amazon VPC, without requiring an internet gateway, NAT device, or VPN connection."
   query       = query.ec2_instance_in_vpc
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -114,7 +115,7 @@ control "ec2_instance_not_publicly_accessible" {
   title       = "EC2 instances should not have a public IP address"
   description = "Manage access to the AWS Cloud by ensuring AWS Elastic Compute Cloud (AWS EC2) instances cannot be publicly accessed."
   query       = query.ec2_instance_not_publicly_accessible
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -140,7 +141,7 @@ control "ec2_instance_no_high_level_finding_in_inspector_scan" {
   title       = "EC2 instances high level findings should not be there in inspector scans"
   description = "AWS Inspector scans operating system packages installed on your AWS EC2 instances for vulnerabilities and network reachability issues. Each finding has the name of the detected vulnerability and provides a severity rating, information about the affected resource, and details such as how to remediate the reported vulnerability."
   query       = query.ec2_instance_no_high_level_finding_in_inspector_scan
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -148,7 +149,7 @@ control "ec2_stopped_instance_30_days" {
   title       = "EC2 stopped instances should be removed in 30 days"
   description = "Enable this rule to help with the baseline configuration of AWS Elastic Compute Cloud (AWS EC2) instances by checking whether AWS EC2 instances have been stopped for more than the allowed number of days, according to your organization's standards."
   query       = query.ec2_stopped_instance_30_days
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -170,7 +171,7 @@ control "ec2_instance_ebs_optimized" {
   title       = "EC2 instance should have EBS optimization enabled"
   description = "An optimized instance in AWS Elastic Block Store (AWS EBS) provides additional, dedicated capacity for AWS EBS I/O operations."
   query       = query.ec2_instance_ebs_optimized
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     audit_manager_control_tower            = "true"
     cis_controls_v8_ig1                    = "true"
@@ -195,7 +196,7 @@ control "ec2_instance_uses_imdsv2" {
   title       = "EC2 instances should use IMDSv2"
   description = "Ensure the Instance Metadata Service Version 2 (IMDSv2) method is enabled to help protect access and control of AWS Elastic Compute Cloud (AWS EC2) instance metadata."
   query       = query.ec2_instance_uses_imdsv2
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     fedramp_low_rev_4                      = "true"
@@ -214,7 +215,7 @@ control "ec2_instance_protected_by_backup_plan" {
   title       = "EC2 instances should be protected by backup plan"
   description = "Ensure that AWS Elastic Compute Cloud (AWS EC2) instances are protected by a backup plan. The rule is non-compliant if the AWS EC2 instance is not covered by a backup plan."
   query       = query.ec2_instance_protected_by_backup_plan
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     acsc_essential_eight                   = "true"
     cisa_cyber_essentials                  = "true"
@@ -238,7 +239,7 @@ control "ec2_instance_iam_profile_attached" {
   title       = "EC2 instances should have IAM profile attached"
   description = "Ensure that an AWS Elastic Compute Cloud (AWS EC2) instance has an Identity and Access Management (IAM) profile attached to it. This rule is non-compliant if no IAM profile is attached to the AWS EC2 instance."
   query       = query.ec2_instance_iam_profile_attached
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -257,7 +258,7 @@ control "ec2_instance_publicly_accessible_iam_profile_attached" {
   title       = "Public EC2 instances should have IAM profile attached"
   description = "Ensure AWS Elastic Compute Cloud (AWS EC2) public instances have an Identity and Access Management (IAM) profile attached to them. This rule is non-compliant if no IAM profile is attached to a public AWS EC2 instance."
   query       = query.ec2_instance_publicly_accessible_iam_profile_attached
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -265,7 +266,7 @@ control "ec2_instance_user_data_no_secrets" {
   title       = "EC2 instances user data should not have secrets"
   description = "User data is a metadata field of an EC2 instance that allows custom code to run after the instance is launched. It contains code which is exposed to any entity which has the most basic access to EC2, even read-only configurations. It is recommended to not use secrets in user data."
   query       = query.ec2_instance_user_data_no_secrets
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -273,7 +274,7 @@ control "ec2_transit_gateway_auto_cross_account_attachment_disabled" {
   title       = "EC2 transit gateways should have auto accept shared attachments disabled"
   description = "Ensure transit gateways have auto accept shared attachments feature disabled. If this setting is disabled, then any VPC that attempts to attach to a transit gateway will need to request authorization, and the account that owns the transit gateway will need to accept the authorization."
   query       = query.ec2_transit_gateway_auto_cross_account_attachment_disabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     nist_csf    = "true"
     pci_dss_v40 = "true"
@@ -284,7 +285,7 @@ control "ec2_instance_no_launch_wizard_security_group" {
   title       = "EC2 instances should not be attached to 'launch wizard' security groups"
   description = "Ensure EC2 instances provisioned in your AWS account are not associated with security groups that have their name prefixed with 'launch-wizard', in order to enforce using secure and custom security groups that exercise the principle of least privilege."
   query       = query.ec2_instance_no_launch_wizard_security_group
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -292,7 +293,7 @@ control "ec2_instance_virtualization_type_no_paravirtual" {
   title       = "Paravirtual EC2 instance types should not be used"
   description = "This control checks whether the virtualization type of an EC2 instance is paravirtual. The control fails if the virtualizationType of the EC2 instance is set to paravirtual."
   query       = query.ec2_instance_virtualization_type_no_paravirtual
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     nist_csf = "true"
   })
@@ -302,7 +303,7 @@ control "ec2_ami_restrict_public_access" {
   title       = "EC2 AMIs should restrict public access"
   description = "This control checks whether EC2 AMIs are set as private or not. The control fails if the EC2 AMIs are set as public."
   query       = query.ec2_ami_restrict_public_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -310,7 +311,7 @@ control "ec2_instance_no_iam_role_with_management_level_access" {
   title       = "EC2 instance IAM role should not allow management level access"
   description = "This control ensures that EC2 instance IAM role does not allow management level access."
   query       = query.ec2_instance_no_iam_role_with_management_level_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -318,7 +319,7 @@ control "ec2_instance_no_iam_role_with_data_destruction_access" {
   title       = "EC2 instance IAM role should not allow data destruction access"
   description = "This control ensures that EC2 instance IAM role does not allow data destruction access."
   query       = query.ec2_instance_no_iam_role_with_data_destruction_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -326,7 +327,7 @@ control "ec2_instance_no_iam_with_write_level_access" {
   title       = "EC2 instance IAM role should not allow write level access"
   description = "This control ensures that EC2 instance IAM role does not allow write level access."
   query       = query.ec2_instance_no_iam_with_write_level_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -334,7 +335,7 @@ control "ec2_instance_no_iam_role_with_database_management_write_access" {
   title       = "EC2 instance IAM role should not allow database management write access"
   description = "This control ensures that EC2 instance IAM role does not allow database management write access."
   query       = query.ec2_instance_no_iam_role_with_database_management_write_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -342,7 +343,7 @@ control "ec2_instance_no_iam_role_with_org_write_access" {
   title       = "EC2 instance IAM role should not allow oraganization write access"
   description = "This control ensures that EC2 instance IAM role does not allow oraganization write access."
   query       = query.ec2_instance_no_iam_role_with_org_write_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -350,7 +351,7 @@ control "ec2_instance_no_iam_role_with_privilege_escalation_risk_access" {
   title       = "EC2 instance IAM role should not allow privilege escalation risk access"
   description = "This control ensures that EC2 instance IAM role does not allow privilege escalation risk access."
   query       = query.ec2_instance_no_iam_role_with_privilege_escalation_risk_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -358,7 +359,7 @@ control "ec2_instance_no_iam_role_with_new_group_creation_with_attached_policy_a
   title       = "EC2 instance IAM role should not allow new group creation with attached policy access"
   description = "This control ensures that EC2 instance IAM role does not allow new group creation with attached policy access."
   query       = query.ec2_instance_no_iam_role_with_new_group_creation_with_attached_policy_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -366,7 +367,7 @@ control "ec2_instance_no_iam_role_with_new_role_creation_with_attached_policy_ac
   title       = "EC2 instance IAM role should not allow new role creation with attached policy access"
   description = "This control ensures that EC2 instance IAM role does not allow new role creation with attached policy access."
   query       = query.ec2_instance_no_iam_role_with_new_role_creation_with_attached_policy_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -374,7 +375,7 @@ control "ec2_instance_no_iam_role_with_new_user_creation_with_attached_policy_ac
   title       = "EC2 instance IAM role should not allow new user creation with attached policy access"
   description = "This control ensures that EC2 instance IAM role does not allow new user creation with attached policy access."
   query       = query.ec2_instance_no_iam_role_with_new_user_creation_with_attached_policy_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -382,7 +383,7 @@ control "ec2_instance_no_iam_role_with_write_access_to_resource_based_policies" 
   title       = "EC2 instance IAM role should not allow write access to resource based policies"
   description = "This control ensures that EC2 instance IAM role does not allow write access to resource based policies."
   query       = query.ec2_instance_no_iam_role_with_write_access_to_resource_based_policies
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -390,7 +391,7 @@ control "ec2_instance_no_iam_role_attached_with_credentials_exposure_access" {
   title       = "EC2 instance IAM role should not be attached with credentials exposure access"
   description = "This control ensures that EC2 instance IAM role should not be attached with credentials exposure access."
   query       = query.ec2_instance_no_iam_role_attached_with_credentials_exposure_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -398,7 +399,7 @@ control "ec2_instance_no_iam_role_with_alter_critical_s3_permissions_configurati
   title       = "EC2 instance IAM role should not allow to alter critical s3 permissions configuration"
   description = "This control ensures that EC2 instance IAM role does not allow to alter critical s3 permissions configuration."
   query       = query.ec2_instance_no_iam_role_with_alter_critical_s3_permissions_configuration
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -406,7 +407,7 @@ control "ec2_instance_no_iam_role_with_destruction_kms_access" {
   title       = "EC2 instance IAM role should not allow destruction KMS access"
   description = "This control ensures that EC2 instance IAM roles do not allow destruction KMS access."
   query       = query.ec2_instance_no_iam_role_with_destruction_kms_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -414,7 +415,7 @@ control "ec2_instance_no_iam_role_with_destruction_rds_access" {
   title       = "EC2 instance IAM role should not allow destruction RDS access"
   description = "This control ensures that EC2 instance IAM roles do not allow destruction RDS access."
   query       = query.ec2_instance_no_iam_role_with_destruction_rds_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -422,7 +423,7 @@ control "ec2_instance_no_iam_role_with_cloud_log_tampering_access" {
   title       = "EC2 instance IAM role should not allow cloud log tampering access"
   description = "This control ensures that EC2 instance IAM roles do not allow cloud log tampering access."
   query       = query.ec2_instance_no_iam_role_with_cloud_log_tampering_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -430,7 +431,7 @@ control "ec2_instance_no_iam_role_with_write_permission_on_critical_s3_configura
   title       = "EC2 instance IAM role should not allow write permission on critical s3 configuration"
   description = "This control ensures that EC2 instance IAM roles do not allow write permission on critical s3 configuration."
   query       = query.ec2_instance_no_iam_role_with_write_permission_on_critical_s3_configuration
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -438,7 +439,7 @@ control "ec2_instance_no_iam_role_with_security_group_write_access" {
   title       = "EC2 instance IAM role should not allow security group write access"
   description = "This control ensures that EC2 instance IAM roles do not allow security group write access."
   query       = query.ec2_instance_no_iam_role_with_security_group_write_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -446,7 +447,7 @@ control "ec2_instance_no_iam_role_with_defense_evasion_impact_of_aws_security_se
   title       = "EC2 instance IAM role should not allow defense evasion impact of AWS security services access"
   description = "This control ensures that EC2 instance IAM role does not allow defense evasion impact of AWS security services access."
   query       = query.ec2_instance_no_iam_role_with_defense_evasion_impact_of_aws_security_services_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -454,7 +455,7 @@ control "ec2_instance_no_iam_role_with_elastic_ip_hijacking_access" {
   title       = "EC2 instance IAM role should not allow elastic IP hijacking access."
   description = "This control ensures that EC2 instance IAM role does not allow elastic IP hijacking access."
   query       = query.ec2_instance_no_iam_role_with_elastic_ip_hijacking_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -462,7 +463,7 @@ control "ec2_instance_no_iam_passrole_and_lambda_invoke_function_access" {
   title       = "EC2 instance IAM should not allow pass role and lambda invoke function access."
   description = "This control ensures that EC2 instance IAM role does not allow pass role and lambda invoke function access."
   query       = query.ec2_instance_no_iam_passrole_and_lambda_invoke_function_access
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -470,7 +471,7 @@ control "ec2_client_vpn_endpoint_client_connection_logging_enabled" {
   title       = "EC2 Client VPN endpoints should have client connection logging enabled"
   description = "This rule ensures that EC2 client VPN endpoints have client connection logging enabled. The rule is non-compliant if client connection logging is not enabled."
   query       = query.ec2_client_vpn_endpoint_client_connection_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -481,7 +482,7 @@ control "ec2_ami_ebs_encryption_enabled" {
   title       = "Ensure Images (AMI's) are encrypted"
   description = "Amazon Machine Images should utilize EBS Encrypted snapshots."
   query       = query.ec2_ami_ebs_encryption_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -489,7 +490,7 @@ control "ec2_ami_not_older_than_90_days" {
   title       = "Ensure Images (AMI) are not older than 90 days"
   description = "Ensure that your AMIs are not older than 90 days."
   query       = query.ec2_ami_not_older_than_90_days
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -497,7 +498,7 @@ control "ec2_instance_not_older_than_180_days" {
   title       = "Ensure no AWS EC2 Instances are older than 180 days"
   description = "Identify any running AWS EC2 instances older than 180 days."
   query       = query.ec2_instance_not_older_than_180_days
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -505,7 +506,7 @@ control "ec2_stopped_instance_90_days" {
   title       = "Ensure instances stopped for over 90 days are removed"
   description = "Enable this rule to help with the baseline configuration of Amazon Elastic Compute Cloud (Amazon EC2) instances by checking whether Amazon EC2 instances have been stopped for more than the allowed number of days, according to your organization's standards."
   query       = query.ec2_stopped_instance_90_days
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -513,7 +514,7 @@ control "ec2_instance_attached_ebs_volume_delete_on_termination_enabled" {
   title       = "Ensure EBS volumes attached to an EC2 instance is marked for deletion upon instance termination"
   description = "This rule ensures that Amazon Elastic Block Store volumes that are attached to Amazon Elastic Compute Cloud (Amazon EC2) instances are marked for deletion when an instance is terminated. If an Amazon EBS volume isn't deleted when the instance that it's attached to is terminated, it may violate the concept of least functionality."
   query       = query.ec2_instance_attached_ebs_volume_delete_on_termination_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 
@@ -521,7 +522,7 @@ control "ec2_network_interface_unused" {
   title       = "Ensure unused ENIs are removed"
   description = "Identify and delete any unused Amazon AWS Elastic Network Interfaces in order to adhere to best practices and to avoid reaching the service limit. An AWS Elastic Network Interface (ENI) is pronounced unused when is not attached anymore to an EC2 instance."
   query       = query.ec2_network_interface_unused
-
+  severity    = "high"
   tags = local.conformance_pack_ec2_common_tags
 }
 

@@ -8,7 +8,7 @@ control "directory_service_directory_snapshots_limit_2" {
   title       = "Directory Service directories manual snapshots limit should not be less than 2"
   description = "Ensure you keep track of the number of manual snapshots for your monitor to guarantee sufficient capacity when it becomes necessary."
   query       = query.directory_service_directory_snapshots_limit_2
-
+  severity    = "high"
   tags = local.conformance_pack_directoryservice_common_tags
 }
 
@@ -16,7 +16,7 @@ control "directory_service_directory_sns_notifications_enabled" {
   title       = "Directory Service directories should have SNS notification enabled"
   description = "This control verifies whether SNS messaging has been set up to receive email or text notifications for any changes in the directory's status."
   query       = query.directory_service_directory_sns_notifications_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_directoryservice_common_tags
 }
 
@@ -24,7 +24,7 @@ control "directory_service_certificate_expires_90_days" {
   title       = "Directory Service certificates should not expire within 90 days"
   description = "Is is recommended to monitor certificate expiration and implement automated alerts to notify the responsible team for timely certificate replacement or removal."
   query       = query.directory_service_certificate_expires_90_days
-
+  severity    = "high"
   tags = local.conformance_pack_directoryservice_common_tags
 }
 

@@ -8,7 +8,7 @@ control "dms_replication_instance_not_publicly_accessible" {
   title       = "DMS replication instances should not be publicly accessible"
   description = "Manage access to the AWS Cloud by ensuring DMS replication instances cannot be publicly accessed."
   query       = query.dms_replication_instance_not_publicly_accessible
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_dms_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -36,7 +36,7 @@ control "dms_certificate_not_expired" {
   title       = "Ensure that all the expired DMS certificates are removed"
   description = "This control ensures that all expired DMS certificates are removed from AWS account."
   query       = query.dms_certificate_not_expired
-
+  severity    = "medium"
   tags = local.conformance_pack_dms_common_tags
 }
 
@@ -44,7 +44,7 @@ control "dms_replication_instance_automatic_minor_version_upgrade_enabled" {
   title       = "DMS replication instances should have automatic minor version upgrade enabled"
   description = "This control checks if automatic minor version upgrade is enabled for an AWS DMS replication instance. The control fails if automatic minor version upgrade isn't enabled for a DMS replication instance."
   query       = query.dms_replication_instance_automatic_minor_version_upgrade_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_dms_common_tags
 }
 
@@ -52,7 +52,7 @@ control "dms_endpoint_ssl_configured" {
   title       = "DMS endpoints should use SSL"
   description = "This control checks whether an AWS DMS endpoint uses an SSL connection. The control fails if the endpoint doesn't use SSL."
   query       = query.dms_endpoint_ssl_configured
-
+  severity    = "medium"
   tags = local.conformance_pack_dms_common_tags
 }
 
@@ -60,7 +60,7 @@ control "dms_replication_task_target_database_logging_enabled" {
   title       = "DMS replication tasks for the target database should have logging enabled"
   description = "This control checks whether logging is enabled with the minimum severity level of LOGGER_SEVERITY_DEFAULT for DMS replication tasks TARGET_APPLY and TARGET_LOAD. The control fails if logging isn't enabled for these tasks or if the minimum severity level is less than LOGGER_SEVERITY_DEFAULT."
   query       = query.dms_replication_task_target_database_logging_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_dms_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -71,7 +71,7 @@ control "dms_replication_task_source_database_logging_enabled" {
   title       = "DMS replication tasks for the source database should have logging enabled"
   description = "This control checks whether logging is enabled with the minimum severity level of LOGGER_SEVERITY_DEFAULT for DMS replication tasks SOURCE_CAPTURE and SOURCE_UNLOAD. The control fails if logging isn't enabled for these tasks or if the minimum severity level is less than LOGGER_SEVERITY_DEFAULT."
   query       = query.dms_replication_task_source_database_logging_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_dms_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

@@ -8,7 +8,7 @@ control "ecr_repository_image_scan_on_push_enabled" {
   title       = "ECR repositories should have image scan on push enabled"
   description = "Ensure AWS Elastic Container Registry (ECR) repositories have image scanning enabled. The rule is non-compliant if image scanning is not enabled for the ECR repository."
   query       = query.ecr_repository_image_scan_on_push_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_ecr_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -20,7 +20,7 @@ control "ecr_repository_prohibit_public_access" {
   title       = "ECR repositories should prohibit public access"
   description = "Ensure there are no ECR repositories set as public."
   query       = query.ecr_repository_prohibit_public_access
-
+  severity    = "medium"
   tags = local.conformance_pack_ecr_common_tags
 }
 
@@ -28,7 +28,7 @@ control "ecr_repository_tag_immutability_enabled" {
   title       = "ECR private repositories should have tag immutability configured"
   description = "This control checks whether a private ECR repository has tag immutability enabled. This control fails if a private ECR repository has tag immutability disabled. This rule passes if tag immutability is enabled and has the value IMMUTABLE."
   query       = query.ecr_repository_tag_immutability_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_ecr_common_tags, {
     nist_csf     = "true"
     rbi_itf_nbfc = "true"
@@ -39,7 +39,7 @@ control "ecr_repository_lifecycle_policy_configured" {
   title       = "ECR repositories should have lifecycle policies configured"
   description = "This control checks if ECR repositories have lifecycle policy configured. This rule fails if ECR repository lifecycle policy is not enabled."
   query       = query.ecr_repository_lifecycle_policy_configured
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_ecr_common_tags, {
     gxp_21_cfr_part_11 = "true"
     gxp_eu_annex_11    = "true"

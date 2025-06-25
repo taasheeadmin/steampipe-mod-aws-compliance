@@ -8,7 +8,7 @@ control "iam_user_unused_credentials_45" {
   title       = "Ensure credentials unused for 45 days or greater are disabled"
   description = "AWS IAM users can access AWS resources using different types of credentials, such as passwords or access keys. It is recommended that all credentials that have been unused in 45 or greater days be deactivated or removed."
   query       = query.iam_user_unused_credentials_45
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -16,7 +16,7 @@ control "iam_access_analyzer_enabled" {
   title       = "Ensure that IAM Access analyzer is enabled for all regions"
   description = "This control checks whether IAM Access analyzer is enabled for all regions. The control fails if IAM Access analyzer is not enabled for all regions."
   query       = query.iam_access_analyzer_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -24,7 +24,7 @@ control "iam_user_group_role_cloudshell_fullaccess_restricted" {
   title       = "Ensure access to AWSCloudShellFullAccess is restricted"
   description = "This control checks whether the AWSCloudShellFullAccess policy is attached to any IAM user, group, or role. The control fails if the policy is attached to any IAM user, group, or role."
   query       = query.iam_user_group_role_cloudshell_fullaccess_restricted
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -32,7 +32,7 @@ control "iam_policy_all_attached_no_star_star" {
   title       = "Ensure IAM policies that allow full \"*:*\" administrative privileges are not attached"
   description = "IAM policies are the means by which privileges are granted to users, groups, or roles. It is recommended and considered a standard security advice to grant least privilege -that is, granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks, instead of allowing full administrative privileges."
   query       = query.iam_policy_all_attached_no_star_star
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -40,7 +40,7 @@ control "iam_root_last_used" {
   title       = "Eliminate use of the 'root' user for administrative and daily tasks"
   description = "This control checks whether the root user has been used in the last 90 days. The control fails if the root user has been used in the last 90 days."
   query       = query.iam_root_last_used
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -48,7 +48,7 @@ control "iam_server_certificate_not_expired" {
   title       = "Ensure that all the expired SSL/TLS certificates stored in AWS IAM are removed"
   description = "To enable HTTPS connections to your website or application in AWS, you need an SSL/TLS server certificate. You can use ACM or IAM to store and deploy server certificates. Use IAM as a certificate manager only when you must support HTTPS connections in a region that is not supported by ACM. IAM securely encrypts your private keys and stores the encrypted version in IAM SSL certificate storage. IAM supports deploying server certificates in all regions, but you must obtain your certificate from an external provider for use with AWS. You cannot upload an ACM certificate to IAM. Additionally, you cannot manage your certificates from the IAM Console."
   query       = query.iam_server_certificate_not_expired
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -56,7 +56,7 @@ control "iam_user_access_keys_and_password_at_setup" {
   title       = "Ensure IAM users are assigned access keys and passwords at setup"
   description = "This control checks whether the IAM users have access keys and passwords at setup. The control fails if the IAM users do not have access keys and passwords at setup."
   query       = query.iam_user_access_keys_and_password_at_setup
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -64,7 +64,7 @@ control "iam_user_no_policies" {
   title       = "Ensure IAM policies are attached only to groups or roles"
   description = "By default, IAM users, groups, and roles have no access to AWS resources. IAM policies are the means by which privileges are granted to users, groups, or roles. It is recommended that IAM policies be applied directly to groups and roles but not users."
   query       = query.iam_user_no_policies
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     nydfs_23 = "true"
   })
@@ -74,7 +74,7 @@ control "iam_user_one_active_key" {
   title       = "Ensure there is only one active access key available for any single IAM user"
   description = "Access keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to the AWS CLI or AWS API (directly or using the AWS SDK)."
   query       = query.iam_user_one_active_key
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -82,7 +82,7 @@ control "iam_policy_custom_attached_no_star_star" {
   title       = "IAM policies should not allow full '*' administrative privileges"
   description = "This control checks whether the default version of IAM policies (also known as customer managed policies) has administrator access that includes a statement with 'Effect': 'Allow' with 'Action': '*' over 'Resource': '*'. The control only checks the customer managed policies that you create. It does not check inline and AWS managed policies."
   query       = query.iam_policy_custom_attached_no_star_star
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -90,7 +90,7 @@ control "iam_account_password_policy_strong_min_length_8" {
   title       = "Password policies for IAM users should have strong configurations with minimum length of 8 or greater"
   description = "This control checks whether the account password policy for IAM users uses the recommended configurations."
   query       = query.iam_account_password_policy_strong_min_length_8
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -98,7 +98,7 @@ control "iam_account_password_policy_strong_min_reuse_24" {
   title       = "IAM password policies for users should have strong configurations"
   description = "The identities and the credentials are issued, managed, and verified based on an organizational IAM password policy."
   query       = query.iam_account_password_policy_strong_min_reuse_24
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -123,7 +123,7 @@ control "iam_group_not_empty" {
   title       = "IAM groups should have at least one user"
   description = "AWS Identity and Access Management (IAM) can help you incorporate the principles of least privilege and separation of duties with access permissions and authorizations, by ensuring that IAM groups have at least one IAM user."
   query       = query.iam_group_not_empty
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     cis_controls_v8_ig1                    = "true"
     fedramp_low_rev_4                      = "true"
@@ -146,7 +146,7 @@ control "iam_policy_no_star_star" {
   title       = "IAM policy should not have statements with admin access"
   description = "AWS Identity and Access Management (IAM) can help you incorporate the principles of least privilege and separation of duties with access permissions and authorizations, restricting policies from containing 'Effect': 'Allow' with 'Action': '*' over 'Resource': '*'."
   query       = query.iam_policy_no_star_star
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -175,7 +175,7 @@ control "iam_root_user_no_access_keys" {
   title       = "IAM root user should not have access keys"
   description = "Access to systems and assets can be controlled by checking that the root user does not have access keys attached to their AWS Identity and Access Management (IAM) role."
   query       = query.iam_root_user_no_access_keys
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -204,7 +204,7 @@ control "iam_root_user_hardware_mfa_enabled" {
   title       = "IAM root user hardware MFA should be enabled"
   description = "Manage access to resources in the AWS Cloud by ensuring hardware MFA is enabled for the root user."
   query       = query.iam_root_user_hardware_mfa_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -232,7 +232,7 @@ control "iam_root_user_mfa_enabled" {
   title       = "IAM root user MFA should be enabled"
   description = "Manage access to resources in the AWS Cloud by ensuring MFA is enabled for the root user."
   query       = query.iam_root_user_mfa_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -260,7 +260,7 @@ control "iam_user_access_key_age_90" {
   title       = "IAM user access keys should be rotated at least every 90 days"
   description = "The credentials are audited for authorized devices, users, and processes by ensuring IAM access keys are rotated as per organizational policy."
   query       = query.iam_user_access_key_age_90
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -284,7 +284,7 @@ control "iam_user_console_access_mfa_enabled" {
   title       = "IAM users with console access should have MFA enabled"
   description = "Manage access to resources in the AWS Cloud by ensuring that MFA is enabled for all AWS Identity and Access Management (IAM) users that have a console password."
   query       = query.iam_user_console_access_mfa_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -313,7 +313,7 @@ control "iam_user_mfa_enabled" {
   title       = "IAM user MFA should be enabled"
   description = "Enable this rule to restrict access to resources in the AWS Cloud."
   query       = query.iam_user_mfa_enabled
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     audit_manager_control_tower            = "true"
@@ -341,7 +341,7 @@ control "iam_user_no_inline_attached_policies" {
   title       = "IAM user should not have any inline or attached policies"
   description = "This rule ensures AWS Identity and Access Management (IAM) policies are attached only to groups or roles to control access to systems and assets."
   query       = query.iam_user_no_inline_attached_policies
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -370,7 +370,7 @@ control "iam_user_unused_credentials_90" {
   title       = "IAM user credentials that have not been used in 90 days should be disabled"
   description = "AWS Identity and Access Management (IAM) can help you with access permissions and authorizations by checking for IAM passwords and access keys that are not used for a specified time period."
   query       = query.iam_user_unused_credentials_90
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -397,7 +397,7 @@ control "iam_user_in_group" {
   title       = "IAM users should be in at least one group"
   description = "AWS Identity and Access Management (IAM) can help you restrict access permissions and authorizations, by ensuring IAM users are members of at least one group."
   query       = query.iam_user_in_group
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -422,7 +422,7 @@ control "iam_group_user_role_no_inline_policies" {
   title       = "IAM groups, users, and roles should not have any inline policies"
   description = "Ensure an AWS Identity and Access Management (IAM) user, IAM role or IAM group does not have an inline policy to control access to systems and assets."
   query       = query.iam_group_user_role_no_inline_policies
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -447,7 +447,7 @@ control "iam_support_role" {
   title       = "Ensure a support role has been created to manage incidents with AWS Support"
   description = "AWS provides a support center that can be used for incident notification and response, as well as technical support and customer services."
   query       = query.iam_support_role
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -457,7 +457,7 @@ control "iam_account_password_policy_min_length_14" {
   title       = "Ensure IAM password policy requires a minimum length of 14 or greater"
   description = "Password policies, in part, enforce password complexity requirements. Use IAM password policies to ensure that passwords are at least a given length. Security Hub recommends that the password policy require a minimum password length of 14 characters."
   query       = query.iam_account_password_policy_min_length_14
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     fedramp_low_rev_4      = "true"
     fedramp_moderate_rev_4 = "true"
@@ -470,7 +470,7 @@ control "iam_account_password_policy_reuse_24" {
   title       = "Ensure IAM password policy prevents password reuse"
   description = "This control checks whether the number of passwords to remember is set to 24. The control fails if the value is not 24. IAM password policies can prevent the reuse of a given password by the same user."
   query       = query.iam_account_password_policy_reuse_24
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -480,7 +480,7 @@ control "iam_account_password_policy_one_lowercase_letter" {
   title       = "Ensure IAM password policy requires at least one lowercase letter"
   description = "Password policies, in part, enforce password complexity requirements. Use IAM password policies to ensure that passwords use different character sets. Security Hub recommends that the password policy require at least one lowercase letter. Setting a password complexity policy increases account resiliency against brute force login attempts."
   query       = query.iam_account_password_policy_one_lowercase_letter
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -490,7 +490,7 @@ control "iam_account_password_policy_one_uppercase_letter" {
   title       = "Ensure IAM password policy requires at least one uppercase letter"
   description = "Password policies, in part, enforce password complexity requirements. Use IAM password policies to ensure that passwords use different character sets."
   query       = query.iam_account_password_policy_one_uppercase_letter
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -500,7 +500,7 @@ control "iam_account_password_policy_one_number" {
   title       = "Ensure IAM password policy requires at least one number"
   description = "Password policies, in part, enforce password complexity requirements. Use IAM password policies to ensure that passwords use different character sets."
   query       = query.iam_account_password_policy_one_number
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -510,7 +510,7 @@ control "iam_password_policy_expire_90" {
   title       = "Ensure IAM password policy expires passwords within 90 days or less"
   description = "IAM password policies can require passwords to be rotated or expired after a given number of days. Security Hub recommends that the password policy expire passwords after 90 days or less. Reducing the password lifetime increases account resiliency against brute force login attempts."
   query       = query.iam_password_policy_expire_90
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -520,7 +520,7 @@ control "iam_account_password_policy_one_symbol" {
   title       = "Ensure IAM password policy requires at least one symbol"
   description = "Password policies, in part, enforce password complexity requirements. Use IAM password policies to ensure that passwords use different character sets. Security Hub recommends that the password policy require at least one symbol. Setting a password complexity policy increases account resiliency against brute force login attempts."
   query       = query.iam_account_password_policy_one_symbol
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     gdpr = "true"
   })
@@ -530,7 +530,7 @@ control "iam_all_policy_no_service_wild_card" {
   title       = "Ensure IAM policy should not grant full access to service"
   description = "Checks if AWS Identity and Access Management (IAM) policies grant permissions to all actions on individual AWS resources. The rule is non-compliant if the managed IAM policy allows full access to at least 1 AWS service."
   query       = query.iam_all_policy_no_service_wild_card
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -553,7 +553,7 @@ control "iam_policy_custom_no_blocked_kms_actions" {
   title       = "Ensure managed IAM policies should not allow blocked actions on KMS keys"
   description = "Checks if the managed AWS Identity and Access Management (IAM) policies that you create do not allow blocked actions on AWS KMS keys. The rule is non - compliant if any blocked action is allowed on AWS KMS keys by the managed IAM policy."
   query       = query.iam_policy_custom_no_blocked_kms_actions
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     fedramp_low_rev_4                      = "true"
@@ -573,7 +573,7 @@ control "iam_policy_inline_no_blocked_kms_actions" {
   title       = "Ensure inline policies attached to IAM users, roles, and groups should not allow blocked actions on KMS keys"
   description = "Checks if the inline policies attached to IAM users, roles, and groups do not allow blocked actions on all AWS Key Management Service (KMS) keys. The rule is non - compliant if any blocked action is allowed on all KMS keys in an inline policy."
   query       = query.iam_policy_inline_no_blocked_kms_actions
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight                   = "true"
     cisa_cyber_essentials                  = "true"
@@ -591,7 +591,7 @@ control "iam_policy_custom_no_assume_role" {
   title       = "IAM roles should not have any assume role policies attached"
   description = "Role assume policies can provide access to roles in external AWS accounts."
   query       = query.iam_policy_custom_no_assume_role
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -599,7 +599,7 @@ control "iam_user_hardware_mfa_enabled" {
   title       = "IAM users should have hardware MFA enabled"
   description = "Manage access to resources in the AWS Cloud by ensuring hardware MFA is enabled for the user."
   query       = query.iam_user_hardware_mfa_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -607,7 +607,7 @@ control "iam_user_with_administrator_access_mfa_enabled" {
   title       = "IAM administrator users should have MFA enabled"
   description = "Manage access to resources in the AWS Cloud by ensuring MFA is enabled for users with administrative privileges."
   query       = query.iam_user_with_administrator_access_mfa_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -615,7 +615,7 @@ control "iam_managed_policy_attached_to_role" {
   title       = "IAM AWS managed policies should be attached to IAM role"
   description = "This control checks if all AWS managed policies specified in the list of managed policies are attached to the AWS Identity and Access Management (IAM) role. The rule is non-compliant if an AWS managed policy is not attached to the IAM role."
   query       = query.iam_managed_policy_attached_to_role
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight = "true"
     cis_controls_v8_ig1  = "true"
@@ -630,7 +630,7 @@ control "iam_policy_unused" {
   title       = "IAM policy should be in use"
   description = "This control checks whether the IAM policy ARN is attached to an IAM user, or a group with one or more IAM users, or an IAM role with one or more trusted entity."
   query       = query.iam_policy_unused
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_iam_common_tags, {
     acsc_essential_eight = "true"
     cis_controls_v8_ig1  = "true"
@@ -645,7 +645,7 @@ control "iam_access_analyzer_enabled_without_findings" {
   title       = "IAM Access analyzer should be enabled without findings"
   description = "This control checks whether the IAM Access analyzer is enabled without findings. If you grant permissions to an S3 bucket in one of your organization member accounts to a principal in another organization member account, IAM Access Analyzer does not generate a finding. But if you grant permission to a principal in an account that is not a member of the organization, IAM Access Analyzer generates a finding."
   query       = query.iam_access_analyzer_enabled_without_findings
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -653,7 +653,7 @@ control "iam_role_unused_60" {
   title       = "IAM roles that have not been used in 60 days should be removed"
   description = "This control checks whether the IAM role has been used in 60 days. Unused accounts and roles increase the attack surface area."
   query       = query.iam_role_unused_60
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -661,7 +661,7 @@ control "iam_custom_policy_unattached_no_star_star" {
   title       = "IAM unattached custom policy should not have statements with admin access"
   description = "AWS Identity and Access Management (IAM) can help you incorporate the principles of least privilege and separation of duties with access permissions and authorizations, restricting policies from containing 'Effect': 'Allow' with 'Action': '*' over 'Resource': '*'."
   query       = query.iam_custom_policy_unattached_no_star_star
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -669,7 +669,7 @@ control "iam_policy_no_full_access_to_cloudtrail" {
   title       = "IAM policy should not grant full access to cloudtrail service"
   description = "CloudTrail is a critical service and IAM policies should follow least privilege model for this service in particular. This control is non-compliant if the managed IAM policy allows full access to cloudtrail service."
   query       = query.iam_policy_no_full_access_to_cloudtrail
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -677,7 +677,7 @@ control "iam_policy_no_full_access_to_kms" {
   title       = "IAM policy should not grant full access to KMS service"
   description = "KMS is a critical service and IAM policies should follow least privilege model for this service in particular. This control is non-compliant if the managed IAM policy allows full access to KMS service."
   query       = query.iam_policy_no_full_access_to_cloudtrail
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -685,7 +685,7 @@ control "iam_role_cross_account_read_only_access_policy" {
   title       = "IAM roles should not have read only access for external AWS accounts"
   description = "Ensure IAM Roles do not have ReadOnlyAccess access for external AWS account. The AWS-managed ReadOnlyAccess policy carries a high risk of potential data leakage, posing a significant threat to customer security and privacy."
   query       = query.iam_role_cross_account_read_only_access_policy
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -693,7 +693,7 @@ control "iam_security_audit_role" {
   title       = "IAM Security Audit role should be created to conduct security audits"
   description = "Ensure IAM Security Audit role is created. By creating an IAM role with a security audit policy, a distinct segregation of responsibilities is established between the security team and other teams within the organization."
   query       = query.iam_security_audit_role
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -701,7 +701,7 @@ control "iam_policy_custom_no_permissive_role_assumption" {
   title       = "IAM custom policy should not have overly permissive STS role assumption"
   description = "Ensure that no custom IAM policies exist which allow permissive role assumption."
   query       = query.iam_policy_custom_no_permissive_role_assumption
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -709,7 +709,7 @@ control "iam_inline_policy_no_administrative_privileges" {
   title       = "IAM inline policy should not have administrative privileges"
   description = "Ensure that no inline IAM policies exist that allow administrative privileges."
   query       = query.iam_inline_policy_no_administrative_privileges
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -717,7 +717,7 @@ control "iam_user_console_access_unused_45" {
   title       = "Ensure IAM users with console access unused for 45 days or greater are disabled"
   description = "AWS IAM users can access AWS resources using console access. It is recommended that console access that have been unused in 45 or greater days be deactivated or removed."
   query       = query.iam_user_console_access_unused_45
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -725,7 +725,7 @@ control "iam_user_access_key_unused_45" {
   title       = "Ensure IAM users with access keys unused for 45 days or greater are disabled"
   description = "AWS IAM users can access AWS resources using access keys. It is recommended that access keys that have been unused in 45 or greater days be deactivated or removed."
   query       = query.iam_user_access_key_unused_45
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -733,7 +733,7 @@ control "iam_role_no_administrator_access_policy_attached" {
   title       = "Ensure IAM role not attached with Administratoraccess policy"
   description = "AWS IAM role should not be attached Administratoraccess policy."
   query       = query.iam_role_no_administrator_access_policy_attached
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 
@@ -741,7 +741,7 @@ control "iam_user_access_key_age_365" {
   title       = "IAM user access keys should be rotated at least every 365 days"
   description = "The credentials are audited for authorized devices, users, and processes by ensuring IAM access keys are rotated as per organizational policy. This control uses a 365-day rotation period which may be more suitable for organizations that find the 90-day rotation period too aggressive."
   query       = query.iam_user_access_key_age_365
-
+  severity    = "critical"
   tags = local.conformance_pack_iam_common_tags
 }
 

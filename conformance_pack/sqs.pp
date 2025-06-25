@@ -8,7 +8,7 @@ control "sqs_queue_encrypted_at_rest" {
   title       = "AWS SQS queues should be encrypted at rest"
   description = "This control checks whether AWS SQS queues are encrypted at rest."
   query       = query.sqs_queue_encrypted_at_rest
-
+  severity    = "medium"
   tags = local.conformance_pack_sqs_common_tags
 }
 
@@ -16,7 +16,7 @@ control "sqs_queue_policy_prohibit_public_access" {
   title       = "SQS queue policies should prohibit public access"
   description = "Manage access to resources in the AWS Cloud by ensuring AWS SQS queues cannot be publicly accessed."
   query       = query.sqs_queue_policy_prohibit_public_access
-
+  severity    = "medium"
   tags = local.conformance_pack_sqs_common_tags
 }
 
@@ -24,7 +24,7 @@ control "sqs_queue_dead_letter_queue_configured" {
   title       = "SQS queues should be configured with a dead-letter queue."
   description = "Ensure SQS queue is configured with a dead-letter queue. Dead-letter queues are useful for debugging your application or messaging system because they let you isolate problematic messages to determine why their processing didn't succeed."
   query       = query.sqs_queue_dead_letter_queue_configured
-
+  severity    = "medium"
   tags = local.conformance_pack_sqs_common_tags
 }
 
@@ -32,7 +32,7 @@ control "sqs_queue_encrypted_with_kms_cmk" {
   title       = "SQS queues should be encrypted with KMS CMK"
   description = "To help protect sensitive data at rest, ensure encryption is enabled for your AWS SQS queues with KMS CMK."
   query       = query.sqs_queue_encrypted_with_kms_cmk
-
+  severity    = "medium"
   tags = local.conformance_pack_sqs_common_tags
 }
 

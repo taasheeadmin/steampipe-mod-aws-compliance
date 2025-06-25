@@ -20,7 +20,7 @@ control "lambda_function_cors_configuration" {
   title       = "Lambda functions CORS configuration should not allow all origins"
   description = "Enable this rule to ensure that the CORS configuration for your Lambda functions does not allow all origins."
   query       = query.lambda_function_cors_configuration
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -28,7 +28,7 @@ control "lambda_function_dead_letter_queue_configured" {
   title       = "Lambda functions should be configured with a dead-letter queue"
   description = "Enable this rule to help notify the appropriate personnel through AWS Simple Queue Service (AWS SQS) or AWS Simple Notification Service (AWS SNS) when a function has failed."
   query       = query.lambda_function_dead_letter_queue_configured
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     fedramp_low_rev_4                      = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -47,7 +47,7 @@ control "lambda_function_in_vpc" {
   title       = "Lambda functions should be in a VPC"
   description = "Deploy AWS Lambda functions within an AWS Virtual Private Cloud (AWS VPC) for a secure communication between a function and other services within the AWS VPC."
   query       = query.lambda_function_in_vpc
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -74,7 +74,7 @@ control "lambda_function_restrict_public_access" {
   title       = "Lambda functions should restrict public access"
   description = "Manage access to resources in the AWS Cloud by ensuring AWS Lambda functions cannot be publicly accessed."
   query       = query.lambda_function_restrict_public_access
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -102,7 +102,7 @@ control "lambda_function_concurrent_execution_limit_configured" {
   title       = "Lambda functions concurrent execution limit configured"
   description = "Checks whether the AWS Lambda function is configured with function-level concurrent execution limit. The control is non-compliant if the Lambda function is not configured with function-level concurrent execution limit."
   query       = query.lambda_function_concurrent_execution_limit_configured
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     fedramp_low_rev_4                      = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -120,7 +120,7 @@ control "lambda_function_cloudtrail_logging_enabled" {
   title       = "Lambda functions CloudTrail logging should be enabled"
   description = "Lambda functions logging is essential because once lambdas are triggered, all of the underlying compute resources are automatically managed for you. This control is compliant if CloudTrail logging is enabled."
   query       = query.lambda_function_cloudtrail_logging_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -128,7 +128,7 @@ control "lambda_function_tracing_enabled" {
   title       = "Lambda functions tracing should be enabled"
   description = "AWS X-Ray can be used to visualize the components of application, identify performance bottlenecks, and troubleshoot requests that resulted in an error. Lambda functions send trace data to X-Ray, and X-Ray processes the data to generate a service map and searchable trace summaries."
   query       = query.lambda_function_tracing_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -136,7 +136,7 @@ control "lambda_function_multiple_az_configured" {
   title       = "Lambda functions should operate in more than one availability zone"
   description = "This control checks if Lambda has more than one availability zone associated. The rule fails if only one availability zone is associated with Lambda."
   query       = query.lambda_function_multiple_az_configured
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     nist_csf     = "true"
     rbi_itf_nbfc = "true"
@@ -147,7 +147,7 @@ control "lambda_function_use_latest_runtime" {
   title       = "Lambda functions should use latest runtimes"
   description = "This control checks that the Lambda function settings for runtimes match the expected values set for the latest runtimes for each supported language. This control checks for the following runtimes: nodejs20.x, nodejs18.x, nodejs16.x, python3.12, python3.11, python3.10, python3.9, python3.8, ruby3.3, ruby3.2, java21, java17, java11, java8.al2, dotnet8, dotnet6"
   query       = query.lambda_function_use_latest_runtime
-
+  severity    = "high"
   tags = merge(local.conformance_pack_lambda_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -159,7 +159,7 @@ control "lambda_function_restrict_public_url" {
   title       = "Lambda functions should restrict public URL"
   description = "This control verifies that the Lambda function does not have a publicly accessible URL. Exposing services publicly could potentially make sensitive data accessible to malicious actors."
   query       = query.lambda_function_restrict_public_url
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -167,7 +167,7 @@ control "lambda_function_variables_no_sensitive_data" {
   title       = "Lambda functions variable should not have any sensitive data"
   description = "Ensure functions environment variables is not having any sensitive data. Leveraging Secrets Manager enables secure provisioning of database credentials to Lambda functions while also ensuring the security of databases. This approach eliminates the need to hardcode secrets in code or pass them through environmental variables. Additionally, Secrets Manager facilitates the secure retrieval of credentials for establishing connections to databases and performing queries, enhancing overall security measures."
   query       = query.lambda_function_variables_no_sensitive_data
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -175,7 +175,7 @@ control "lambda_function_cloudwatch_insights_enabled" {
   title       = "Ensure Cloudwatch Lambda insights is enabled"
   description = "Ensure that Amazon CloudWatch Lambda Insights is enabled for your Amazon Lambda functions for enhanced monitoring."
   query       = query.lambda_function_cloudwatch_insights_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -183,7 +183,7 @@ control "lambda_function_encryption_enabled" {
   title       = "Ensure encryption in transit is enabled for Lambda environment variables"
   description = "As you can set your own environmental variables for Lambda it is important to also encrypt them for in transit protection."
   query       = query.lambda_function_encryption_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 
@@ -191,7 +191,7 @@ control "lambda_function_logging_config_enabled" {
   title       = "Ensure Lambda function logging config is enabled"
   description = "Ensure that AWS Lambda function logging config is enabled for your Amazon Lambda functions for enhanced monitoring."
   query       = query.lambda_function_logging_config_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_lambda_common_tags
 }
 

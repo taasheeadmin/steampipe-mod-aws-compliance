@@ -8,7 +8,7 @@ control "ebs_encryption_by_default_enabled" {
   title       = "EBS encryption by default should be enabled"
   description = "To help protect data at rest, ensure that encryption is enabled for your AWS Elastic Block Store (AWS EBS) volumes."
   query       = query.ebs_encryption_by_default_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ec2_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -31,7 +31,7 @@ control "ebs_snapshot_not_publicly_restorable" {
   title       = "EBS snapshots should not be publicly restorable"
   description = "Manage access to the AWS Cloud by ensuring EBS snapshots are not publicly restorable."
   query       = query.ebs_snapshot_not_publicly_restorable
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -59,7 +59,7 @@ control "ebs_volume_encryption_at_rest_enabled" {
   title       = "EBS volume encryption at rest should be enabled"
   description = "Because sensitive data can exist and to help protect data at rest, ensure encryption is enabled for your AWS Elastic Block Store (AWS EBS) volumes."
   query       = query.ebs_volume_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     fedramp_moderate_rev_4 = "true"
     gdpr                   = "true"
@@ -72,7 +72,7 @@ control "ebs_attached_volume_encryption_enabled" {
   title       = "Attached EBS volumes should have encryption enabled"
   description = "Because sensitive data can exist and to help protect data at rest, ensure encryption is enabled for your AWS Elastic Block Store (AWS EBS) volumes."
   query       = query.ebs_attached_volume_encryption_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     audit_manager_control_tower            = "true"
     cis_controls_v8_ig1                    = "true"
@@ -100,7 +100,7 @@ control "ebs_volume_in_backup_plan" {
   title       = "EBS volumes should be in a backup plan"
   description = "To help with data back-up processes, ensure your AWS Elastic Block Store (AWS EBS) volumes are a part of an AWS Backup plan."
   query       = query.ebs_volume_in_backup_plan
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -127,7 +127,7 @@ control "ebs_attached_volume_delete_on_termination_enabled" {
   title       = "Attached EBS volumes should have delete on termination enabled"
   description = "This rule ensures that AWS Elastic Block Store volumes that are attached to AWS Elastic Compute Cloud (AWS EC2) instances are marked for deletion when an instance is terminated."
   query       = query.ebs_attached_volume_delete_on_termination_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     fedramp_moderate_rev_4 = "true"
     ffiec                  = "true"
@@ -139,7 +139,7 @@ control "ebs_volume_protected_by_backup_plan" {
   title       = "EBS volumes should be protected by a backup plan"
   description = "Ensure that AWS Elastic Block Store (AWS EBS) volumes are protected by a backup plan. The rule is non-compliant if the AWS EBS volume is not covered by a backup plan."
   query       = query.ebs_volume_protected_by_backup_plan
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     acsc_essential_eight                   = "true"
     fedramp_low_rev_4                      = "true"
@@ -161,7 +161,7 @@ control "ebs_volume_unused" {
   title       = "EBS volumes should be attached to EC2 instances"
   description = "Checks if EBS volumes are attached to EC2 instances."
   query       = query.ebs_volume_unused
-
+  severity    = "high"
   tags = merge(local.conformance_pack_ebs_common_tags, {
     audit_manager_control_tower = "true"
     cis_controls_v8_ig1         = "true"
@@ -182,7 +182,7 @@ control "ebs_snapshot_encryption_enabled" {
   title       = "EBS snapshots should be encrypted"
   description = "Ensure that EBS snapshots are encrypted. This rule is non-compliant if the EBS snapshot is not encrypted."
   query       = query.ebs_snapshot_encryption_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_ebs_common_tags
 }
 
@@ -190,7 +190,7 @@ control "ebs_volume_snapshot_exists" {
   title       = "EBS volume snapshots should exist"
   description = "Ensure that EBS volume snapshots exist. This rule is non-compliant if the EBS volume does not have any snapshot."
   query       = query.ebs_volume_snapshot_exists
-
+  severity    = "high"
   tags = local.conformance_pack_ebs_common_tags
 }
 

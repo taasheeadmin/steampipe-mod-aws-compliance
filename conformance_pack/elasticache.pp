@@ -8,7 +8,7 @@ control "elasticache_cluster_auto_minor_version_upgrade_enabled" {
   title       = "Minor version upgrades should be automatically applied to ElastiCache for Redis cache clusters"
   description = "This control evaluates whether ElastiCache for Redis automatically applies minor version upgrades to cache clusters. This control fails if ElastiCache for Redis cache clusters do not have minor version upgrades automatically applied."
   query       = query.elasticache_cluster_auto_minor_version_upgrade_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_elasticache_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -19,7 +19,7 @@ control "elasticache_replication_group_auto_failover_enabled" {
   title       = "ElastiCache for Redis replication groups should have automatic failover enabled"
   description = "This control checks if ElastiCache for Redis replication groups have automatic failover enabled. This control fails if automatic failover isn't enabled for a Redis replication group."
   query       = query.elasticache_replication_group_auto_failover_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -27,7 +27,7 @@ control "elasticache_replication_group_encryption_at_rest_enabled" {
   title       = "ElastiCache for Redis replication groups should be encrypted at rest"
   description = "This control checks if ElastiCache for Redis replication groups are encrypted at rest. This control fails if an ElastiCache for Redis replication group isn't encrypted at rest."
   query       = query.elasticache_replication_group_encryption_at_rest_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -35,7 +35,7 @@ control "elasticache_replication_group_encryption_in_transit_enabled" {
   title       = "ElastiCache for Redis replication groups should be encrypted in transit"
   description = "This control checks if ElastiCache for Redis replication groups are encrypted in transit. This control fails if an ElastiCache for Redis replication group isn't encrypted in transit."
   query       = query.elasticache_replication_group_encryption_in_transit_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -43,7 +43,7 @@ control "elasticache_replication_group_redis_auth_enabled" {
   title       = "ElastiCache for Redis replication groups before version 6.0 should use Redis Auth"
   description = "This control checks if ElastiCache for Redis replication groups has Redis Auth enabled. The control fails for an ElastiCache for Redis replication group if the Redis version of its nodes is below 6.0 and AuthToken isn't in use."
   query       = query.elasticache_replication_group_redis_auth_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -51,7 +51,7 @@ control "elasticache_cluster_no_default_subnet_group" {
   title       = "ElastiCache clusters should not use the default subnet group"
   description = "This control checks if ElastiCache clusters are configured with a custom subnet group. The control fails for an ElastiCache cluster if CacheSubnetGroupName has the value default."
   query       = query.elasticache_cluster_no_default_subnet_group
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -59,7 +59,7 @@ control "elasticache_redis_cluster_automatic_backup_retention_15_days" {
   title       = "ElastiCache Redis cluster automatic backup should be enabled with retention period of 15 days or greater"
   description = "When automatic backups are enabled, AWS ElastiCache creates a backup of the cluster on a daily basis. The backup can be retained for a number of days as specified by your organization. Automatic backups can help guard against data loss."
   query       = query.elasticache_redis_cluster_automatic_backup_retention_15_days
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_elasticache_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -88,7 +88,7 @@ control "elasticache_cluster_no_public_subnet" {
   title       = "ElastiCache clusters should not use public_subnet"
   description = "This control checks if ElastiCache clusters are configured with public subnet as there is a risk of exposing sensitive data."
   query       = query.elasticache_cluster_no_public_subnet
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 
@@ -96,7 +96,7 @@ control "elasticache_replication_group_encryption_at_rest_enabled_with_kms_cmk" 
   title       = "ElastiCache for Redis replication groups should be encrypted with CMK"
   description = "Ensure ElastiCache for Redis replication group are encrypted using CMK. The rule is non-compliant if the ElastiCache for Redis replication group is not encrypted using CMK."
   query       = query.elasticache_replication_group_encryption_at_rest_enabled_with_kms_cmk
-
+  severity    = "medium"
   tags = local.conformance_pack_elasticache_common_tags
 }
 

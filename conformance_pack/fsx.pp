@@ -8,7 +8,7 @@ control "fsx_file_system_protected_by_backup_plan" {
   title       = "FSx file system should be protected by backup plan"
   description = "Checks if AWS FSx File Systems are protected by a backup plan. The rule is non-compliant if the AWS FSx File System is not covered by a backup plan."
   query       = query.fsx_file_system_protected_by_backup_plan
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_fsx_common_tags, {
     acsc_essential_eight                   = "true"
     cisa_cyber_essentials                  = "true"
@@ -31,7 +31,7 @@ control "fsx_file_system_copy_tags_to_backup_and_volume_enabled" {
   title       = "FSx for OpenZFS file systems should be configured to copy tags to backups and volumes"
   description = "This control checks if an Amazon FSx for OpenZFS file system is configured to copy tags to backups and volumes. The control fails if the OpenZFS file system isn't configured to copy tags to backups and volumes."
   query       = query.fsx_file_system_copy_tags_to_backup_and_volume_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_fsx_common_tags
 }
 

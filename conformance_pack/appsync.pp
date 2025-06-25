@@ -8,7 +8,7 @@ control "appsync_graphql_api_field_level_logging_enabled" {
   title       = "AppSync graphql API logging should be enabled"
   description = "This control checks whether an AWS AppSync API has field-level logging turned on. The control fails if the field resolver log level is set to None. Unless you provide custom parameter values to indicate that a specific log type should be enabled, Security Hub produces a passed finding if the field resolver log level is either ERROR or ALL."
   query       = query.appsync_graphql_api_field_level_logging_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_appsync_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

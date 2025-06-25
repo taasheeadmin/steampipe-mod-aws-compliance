@@ -8,7 +8,7 @@ control "dlm_ebs_snapshot_lifecycle_policy_enabled" {
   title       = "DLM EBS snapshot lifecycle policy should be enabled"
   description = "Ensure DLM EBS snapshot lifecycle policy is enabled in all the regions with EBS snapshots."
   query       = query.dlm_ebs_snapshot_lifecycle_policy_enabled
-
+  severity    = "low"
   tags = local.conformance_pack_dlm_common_tags
 }
 

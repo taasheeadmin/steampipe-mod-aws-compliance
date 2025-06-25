@@ -8,7 +8,7 @@ control "eks_cluster_secrets_encrypted" {
   title       = "EKS clusters should be configured to have kubernetes secrets encrypted using KMS"
   description = "Ensure that AWS Elastic Kubernetes Service clusters are configured to have Kubernetes secrets encrypted using AWS Key Management Service (KMS) keys."
   query       = query.eks_cluster_secrets_encrypted
-
+  severity    = "high"
   tags = merge(local.conformance_pack_eks_common_tags, {
     gxp_eu_annex_11                        = "true"
     hipaa_final_omnibus_security_rule_2013 = "true"
@@ -23,7 +23,7 @@ control "eks_cluster_endpoint_restrict_public_access" {
   title       = "EKS clusters endpoint should restrict public access"
   description = "Ensure whether AWS Elastic Kubernetes Service (AWS EKS) endpoint is not publicly accessible. The rule is compliant if the endpoint is publicly accessible."
   query       = query.eks_cluster_endpoint_restrict_public_access
-
+  severity    = "high"
   tags = merge(local.conformance_pack_eks_common_tags, {
     cis_controls_v8_ig1 = "true"
     nist_800_171_rev_2  = "true"
@@ -37,7 +37,7 @@ control "eks_cluster_control_plane_audit_logging_enabled" {
   title       = "EKS clusters should have control plane audit logging enabled"
   description = "AWS EKS clusters should have control plane audit logging enabled. These logs make it easy to secure and run clusters."
   query       = query.eks_cluster_control_plane_audit_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_eks_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"
@@ -48,7 +48,7 @@ control "eks_cluster_no_default_vpc" {
   title       = "EKS clusters should not be configured within a default VPC"
   description = "Ensure to configure a new VPC for your EKS cluster as default VPC comes with a default configuration that lacks the proper security controls. Your network should be well configured and should follow the least privilege principle, meaning only the necessary privileges are granted."
   query       = query.eks_cluster_no_default_vpc
-
+  severity    = "high"
   tags = local.conformance_pack_eks_common_tags
 }
 
@@ -56,7 +56,7 @@ control "eks_cluster_with_latest_kubernetes_version" {
   title       = "EKS clusters should run on a supported Kubernetes version"
   description = "This control checks whether an AWS EKS cluster is running on a supported Kubernetes version. The control fails if the EKS cluster is running on an unsupported version. If your application doesn't require a specific version of Kubernetes, we recommend that you use the latest available Kubernetes version that's supported by EKS for your clusters."
   query       = query.eks_cluster_with_latest_kubernetes_version
-
+  severity    = "high"
   tags = merge(local.conformance_pack_eks_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -69,7 +69,7 @@ control "eks_cluster_endpoint_public_access_restricted" {
   title       = "EKS clusters endpoint public access should be restricted"
   description = "EKS clusters endpoint with private access allows communication between your nodes and the API server stays within. This control is non-compliant if clusters endpoint public access is enabled as cluster API server is accessible from the internet."
   query       = query.eks_cluster_endpoint_public_access_restricted
-
+  severity    = "high"
   tags = local.conformance_pack_eks_common_tags
 }
 
@@ -77,7 +77,7 @@ control "eks_cluster_no_multiple_security_groups" {
   title       = "EKS clusters should not use multiple security groups"
   description = "This controls ensures that EKS clusters is not using multiple security groups."
   query       = query.eks_cluster_no_multiple_security_groups
-
+  severity    = "high"
   tags = local.conformance_pack_eks_common_tags
 }
 

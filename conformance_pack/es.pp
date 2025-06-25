@@ -8,7 +8,7 @@ control "es_domain_error_logging_enabled" {
   title       = "Elasticsearch domain error logging to CloudWatch Logs should be enabled"
   description = "This control checks whether Elasticsearch domains are configured to send error logs to CloudWatch Logs."
   query       = query.es_domain_error_logging_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 
@@ -16,7 +16,7 @@ control "es_domain_audit_logging_enabled" {
   title       = "Elasticsearch domains should have audit logging enabled"
   description = "This control checks whether Elasticsearch domains have audit logging enabled. This control fails if an Elasticsearch domain does not have audit logging enabled."
   query       = query.es_domain_audit_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_es_common_tags, {
     acsc_essential_eight = "true"
   })
@@ -26,7 +26,7 @@ control "es_domain_data_nodes_min_3" {
   title       = "Elasticsearch domains should have at least three data nodes"
   description = "This control checks whether Elasticsearch domains are configured with at least three data nodes and zoneAwarenessEnabled is true."
   query       = query.es_domain_data_nodes_min_3
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 
@@ -34,7 +34,7 @@ control "es_domain_dedicated_master_nodes_min_3" {
   title       = "Elasticsearch domains should be configured with at least three dedicated master nodes"
   description = "This control checks whether Elasticsearch domains are configured with at least three dedicated master nodes. This control fails if the domain does not use dedicated master nodes. This control passes if Elasticsearch domains have five dedicated master nodes. However, using more than three master nodes might be unnecessary to mitigate the availability risk, and will result in additional cost."
   query       = query.es_domain_dedicated_master_nodes_min_3
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 
@@ -42,7 +42,7 @@ control "es_domain_encrypted_using_tls_1_2" {
   title       = "Connections to Elasticsearch domains should be encrypted using TLS 1.2"
   description = "This control checks whether connections to Elasticsearch domains are required to use TLS 1.2. The check fails if the Elasticsearch domain TLSSecurityPolicy is not Policy-Min-TLS-1-2-2019-07."
   query       = query.es_domain_encrypted_using_tls_1_2
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 
@@ -50,7 +50,7 @@ control "es_domain_encryption_at_rest_enabled" {
   title       = "ES domain encryption at rest should be enabled"
   description = "Because sensitive data can exist and to help protect data at rest, ensure encryption is enabled for your AWS Elasticsearch Service (AWS ES) domains."
   query       = query.es_domain_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_es_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_moderate_rev_4                 = "true"
@@ -76,7 +76,7 @@ control "es_domain_in_vpc" {
   title       = "ES domains should be in a VPC"
   description = "Manage access to the AWS Cloud by ensuring AWS Elasticsearch Service (AWS ES) Domains are within an AWS Virtual Private Cloud (AWS VPC)."
   query       = query.es_domain_in_vpc
-
+  severity    = "high"
   tags = merge(local.conformance_pack_es_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -103,7 +103,7 @@ control "es_domain_node_to_node_encryption_enabled" {
   title       = "Elasticsearch domain node-to-node encryption should be enabled"
   description = "Ensure node-to-node encryption for AWS Elasticsearch Service is enabled. Node-to-node encryption enables TLS 1.2 encryption for all communications within the AWS Virtual Private Cloud (AWS VPC)."
   query       = query.es_domain_node_to_node_encryption_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_es_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -129,7 +129,7 @@ control "es_domain_logs_to_cloudwatch" {
   title       = "Elasticsearch domain should send logs to CloudWatch"
   description = "Ensure that AWS OpenSearch Service (OpenSearch Service) domains are configured to send logs to AWS CloudWatch Logs. The rule is compliant if a log is enabled for an OpenSearch Service domain. This rule is non-compliant if logging is not configured."
   query       = query.es_domain_logs_to_cloudwatch
-
+  severity    = "high"
   tags = merge(local.conformance_pack_es_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -155,7 +155,7 @@ control "es_domain_cognito_authentication_enabled" {
   title       = "Elasticsearch domains should have cognito authentication enabled"
   description = "AWS Elasticsearch service uses AWS Cognito to offer user name and password protection for Kibana. This control is non-compliant if AWS Cognito authentication is not enabled."
   query       = query.es_domain_cognito_authentication_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 
@@ -163,7 +163,7 @@ control "es_domain_internal_user_database_enabled" {
   title       = "Elasticsearch domains should have internal user database enabled"
   description = "Ensure Elasticsearch domains have internal user database enabled. This control is non-compliant if a domain's internal user database is not enabled."
   query       = query.es_domain_internal_user_database_enabled
-
+  severity    = "high"
   tags = local.conformance_pack_es_common_tags
 }
 

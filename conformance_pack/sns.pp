@@ -8,7 +8,7 @@ control "sns_topic_encrypted_at_rest" {
   title       = "SNS topics should be encrypted at rest"
   description = "To help protect data at rest, ensure that your AWS Simple Notification Service (AWS SNS) topics require encryption using AWS Key Management Service (AWS KMS)."
   query       = query.sns_topic_encrypted_at_rest
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_sns_common_tags, {
     cisa_cyber_essentials                  = "true"
     fedramp_low_rev_4                      = "true"
@@ -33,7 +33,7 @@ control "sns_topic_policy_prohibit_public_access" {
   title       = "SNS topic policies should prohibit public access"
   description = "Manage access to resources in the AWS Cloud by ensuring AWS SNS topics cannot be publicly accessed."
   query       = query.sns_topic_policy_prohibit_public_access
-
+  severity    = "medium"
   tags = local.conformance_pack_sns_common_tags
 }
 
@@ -41,7 +41,7 @@ control "sns_topic_notification_delivery_status_enabled" {
   title       = "Logging of delivery status should be enabled for notification messages sent to a topic"
   description = "This control checks whether logging is enabled for the delivery status of notification messages sent to an AWS SNS topic for the endpoints. This control fails if the delivery status notification for messages is not enabled."
   query       = query.sns_topic_notification_delivery_status_enabled
-
+  severity    = "medium"
   tags = merge(local.conformance_pack_sns_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -54,7 +54,7 @@ control "sns_topic_policy_prohibit_publishing_access" {
   title       = "SNS topic policies should prohibit publishing access"
   description = "Manage access to resources in the AWS Cloud by ensuring SNS topics cannot be accessed publicly for publishing."
   query       = query.sns_topic_policy_prohibit_publishing_access
-
+  severity    = "medium"
   tags = local.conformance_pack_sns_common_tags
 }
 
@@ -62,7 +62,7 @@ control "sns_topic_policy_prohibit_subscription_access" {
   title       = "SNS topic policies should prohibit subscription public access"
   description = "Manage access to resources in the AWS Cloud by ensuring SNS topics cannot be accessed publicly for subscription."
   query       = query.sns_topic_policy_prohibit_subscription_access
-
+  severity    = "medium"
   tags = local.conformance_pack_sns_common_tags
 }
 
@@ -70,7 +70,7 @@ control "sns_topic_policy_prohibit_cross_account_access" {
   title       = "SNS topic policies should prohibit cross account access"
   description = "Manage access to resources in the AWS Cloud by ensuring SNS topics does not have cross account access."
   query       = query.sns_topic_policy_prohibit_cross_account_access
-
+  severity    = "medium"
   tags = local.conformance_pack_sns_common_tags
 }
 

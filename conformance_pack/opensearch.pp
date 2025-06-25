@@ -8,7 +8,7 @@ control "opensearch_domain_data_node_fault_tolerance" {
   title       = "OpenSearch domains should have at least three data nodes"
   description = "This control checks whether OpenSearch domains are configured with at least three data nodes and zoneAwarenessEnabled is true. This control fails for an OpenSearch domain if instanceCount is less than 3 or zoneAwarenessEnabled is false."
   query       = query.opensearch_domain_data_node_fault_tolerance
-
+  severity    = "high"
   tags = local.conformance_pack_opensearch_common_tags
 }
 
@@ -16,7 +16,7 @@ control "opensearch_domain_encryption_at_rest_enabled" {
   title       = "OpenSearch domains should have encryption at rest enabled"
   description = "This control checks whether AWS OpenSearch domains have encryption-at-rest configuration enabled. The check fails if encryption at rest is not enabled."
   query       = query.opensearch_domain_encryption_at_rest_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     gxp_21_cfr_part_11                     = "true"
     gxp_eu_annex_11                        = "true"
@@ -34,7 +34,7 @@ control "opensearch_domain_fine_grained_access_enabled" {
   title       = "OpenSearch domains should have fine-grained access control enabled"
   description = "This control checks whether OpenSearch domains have fine-grained access control enabled. The control fails if the fine-grained access control is not enabled. Fine-grained access control requires advanced-security-optionsin the OpenSearch parameter update-domain-config to be enabled."
   query       = query.opensearch_domain_fine_grained_access_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     acsc_essential_eight = "true"
     nist_csf             = "true"
@@ -47,7 +47,7 @@ control "opensearch_domain_https_required" {
   title       = "OpenSearch domains should use HTTPS"
   description = "This control checks whether connections to OpenSearch domains are using HTTPS. The rule is non-compliant if the OpenSearch domain 'EnforceHTTPS' is not 'true' or is 'true' and 'TLSSecurityPolicy' is not in 'tlsPolicies'."
   query       = query.opensearch_domain_https_required
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     gxp_21_cfr_part_11                     = "true"
     gxp_eu_annex_11                        = "true"
@@ -64,7 +64,7 @@ control "opensearch_domain_audit_logging_enabled" {
   title       = "OpenSearch domains should have audit logging enabled."
   description = "This control checks whether OpenSearch service domains have audit logging enabled. The rule is non-compliant if an OpenSearch service domain does not have audit logging enabled."
   query       = query.opensearch_domain_audit_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     acsc_essential_eight = "true"
     gxp_21_cfr_part_11   = "true"
@@ -80,7 +80,7 @@ control "opensearch_domain_logs_to_cloudwatch" {
   title       = "OpenSearch domains logs to AWS CloudWatch Logs"
   description = "This control checks whether AWS OpenSearch Service domains are configured to send logs to CloudWatch logs. The rule is non-compliant if logging is not configured."
   query       = query.opensearch_domain_logs_to_cloudwatch
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     acsc_essential_eight = "true"
     gxp_21_cfr_part_11   = "true"
@@ -97,7 +97,7 @@ control "opensearch_domain_node_to_node_encryption_enabled" {
   title       = "OpenSearch domains node-to-node encryption should be enabled"
   description = "This control checks if AWS OpenSearch Service nodes are encrypted end to end. The rule is non-compliant if the node-to-node encryption is not enabled on the domain."
   query       = query.opensearch_domain_node_to_node_encryption_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     gxp_21_cfr_part_11                     = "true"
     gxp_eu_annex_11                        = "true"
@@ -114,7 +114,7 @@ control "opensearch_domain_in_vpc" {
   title       = "OpenSearch domains should be in a VPC"
   description = "This control checks whether AWS OpenSearch domains are in a VPC. It does not evaluate the VPC subnet routing configuration to determine public access."
   query       = query.opensearch_domain_in_vpc
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     hipaa_final_omnibus_security_rule_2013 = "true"
     hipaa_security_rule_2003               = "true"
@@ -130,7 +130,7 @@ control "opensearch_domain_cognito_authentication_enabled_for_kibana" {
   title       = "OpenSearch domains cognito authentication should be enabled for kibana"
   description = "This control checks whether AWS OpenSearch domain has AWS Cognito authentication for Kibana enabled. AWS Cognito lets you easily add user sign-up and authentication to your mobile and web apps."
   query       = query.opensearch_domain_cognito_authentication_enabled_for_kibana
-
+  severity    = "high"
   tags = local.conformance_pack_opensearch_common_tags
 }
 
@@ -138,7 +138,7 @@ control "opensearch_domain_internal_user_database_disabled" {
   title       = "OpenSearch domains internal user database should be disabled"
   description = "Ensure that AWS OpenSearch domain has internal user database disabled. This control is non-compliant if the OpenSearch domain internal user database is enabled."
   query       = query.opensearch_domain_internal_user_database_disabled
-
+  severity    = "high"
   tags = local.conformance_pack_opensearch_common_tags
 }
 
@@ -146,7 +146,7 @@ control "opensearch_domain_updated_with_latest_service_software_version" {
   title       = "OpenSearch domains should be updated to the latest service software version"
   description = "This control checks whether AWS OpenSearch domain has any updates available. This control is non-compliant if the OpenSearch domain has any updates available."
   query       = query.opensearch_domain_updated_with_latest_service_software_version
-
+  severity    = "high"
   tags = merge(local.conformance_pack_opensearch_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

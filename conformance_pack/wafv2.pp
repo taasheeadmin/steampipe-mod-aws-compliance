@@ -8,7 +8,7 @@ control "wafv2_web_acl_logging_enabled" {
   title       = "Logging should be enabled on AWS WAFv2 regional and global web access control list (ACLs)"
   description = "To help with logging and monitoring within your environment, enable AWS WAF (V2) logging on regional and global web ACLs."
   query       = query.wafv2_web_acl_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_wafv2_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -37,7 +37,7 @@ control "wafv2_web_acl_rule_attached" {
   title       = "A WAFV2 web ACL should have at least one rule or rule group"
   description = "This control checks whether a WAFV2 web access control list (web ACL) contains at least one WAF rule or WAF rule group. The control fails if a web ACL does not contain any WAF rules or rule groups."
   query       = query.wafv2_web_acl_rule_attached
-
+  severity    = "high"
   tags = local.conformance_pack_waf_common_tags
 }
 
@@ -45,7 +45,7 @@ control "wafv2_rule_group_logging_enabled" {
   title       = "AWS WAF rules should have CloudWatch metrics enabled"
   description = "This control checks whether an AWS WAF rule or rule group has Amazon CloudWatch metrics enabled. The control fails if the rule or rule group doesn't have CloudWatch metrics enabled."
   query       = query.wafv2_rule_group_logging_enabled
-
+  severity    = "high"
   tags = merge(local.conformance_pack_wafv2_common_tags, {
     acsc_essential_eight = "true"
     pci_dss_v40          = "true"

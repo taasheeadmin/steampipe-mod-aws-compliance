@@ -8,7 +8,7 @@ control "ec2_instance_ssm_managed" {
   title       = "EC2 instances should be managed by AWS Systems Manager"
   description = "An inventory of the software platforms and applications within the organization is possible by managing AWS Elastic Compute Cloud (AWS EC2) instances with AWS Systems Manager."
   query       = query.ec2_instance_ssm_managed
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_ssm_common_tags, {
     cis_controls_v8_ig1                    = "true"
     cisa_cyber_essentials                  = "true"
@@ -33,7 +33,7 @@ control "ssm_managed_instance_compliance_association_compliant" {
   title       = "SSM managed instance associations should be compliant"
   description = "Use AWS Systems Manager Associations to help with inventory of software platforms and applications within an organization."
   query       = query.ssm_managed_instance_compliance_association_compliant
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_ssm_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -61,7 +61,7 @@ control "ssm_managed_instance_compliance_patch_compliant" {
   title       = "SSM managed instance patching should be compliant"
   description = "Enable this rule to help with identification and documentation of AWS Elastic Compute Cloud (AWS EC2) vulnerabilities."
   query       = query.ssm_managed_instance_compliance_patch_compliant
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_ssm_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -88,7 +88,7 @@ control "ssm_document_prohibit_public_access" {
   title       = "SSM documents should not be public"
   description = "This control checks whether AWS Systems Manager documents that are owned by the account are public. This control fails if SSM documents with the owner Self are public."
   query       = query.ssm_document_prohibit_public_access
-
+  severity    = "critical"
   tags = merge(local.conformance_pack_ssm_common_tags, {
     acsc_essential_eight                   = "true"
     cis_controls_v8_ig1                    = "true"
@@ -105,7 +105,7 @@ control "ssm_parameter_encryption_enabled" {
   title       = "SSM parameters encryption should be enabled"
   description = "This control checks if SSM parameter has encryption enabled."
   query       = query.ssm_parameter_encryption_enabled
-
+  severity    = "critical"
   tags = local.conformance_pack_ssm_common_tags
 }
 

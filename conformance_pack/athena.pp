@@ -8,7 +8,7 @@ control "athena_workgroup_encryption_at_rest_enabled" {
   title       = "Athena workgroups should be encrypted at rest"
   description = "This control checks if an Athena workgroup is encrypted at rest. The control fails if an Athena workgroup isn't encrypted at rest."
   query       = query.athena_workgroup_encryption_at_rest_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_athena_common_tags
 }
 
@@ -16,7 +16,7 @@ control "athena_workgroup_enforce_configuration_enabled" {
   title       = "Athena workgroups should enforce configuration"
   description = "This control checks if an Athena workgroup enforces configuration. The control fails if an Athena workgroup doesn't enforce configuration."
   query       = query.athena_workgroup_enforce_configuration_enabled
-
+  severity    = "medium"
   tags = local.conformance_pack_athena_common_tags
 }
 
