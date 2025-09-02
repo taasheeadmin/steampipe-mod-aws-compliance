@@ -41,6 +41,7 @@ control "cis_v140_1_1" {
   description   = "Ensure contact email and telephone details for AWS accounts are current and map to more than one individual in your organization."
   query         = query.manual_control
   documentation = file("./cis_v140/docs/cis_v140_1_1.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.1"
@@ -55,6 +56,7 @@ control "cis_v140_1_2" {
   description   = "AWS provides customers with the option of specifying the contact information for account's security team. It is recommended that this information be provided."
   query         = query.account_alternate_contact_security_registered
   documentation = file("./cis_v140/docs/cis_v140_1_2.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.2"
@@ -69,6 +71,7 @@ control "cis_v140_1_3" {
   description   = "The AWS support portal allows account owners to establish security questions that can be used to authenticate individuals calling AWS customer service for support. It is recommended that security questions be established."
   query         = query.manual_control
   documentation = file("./cis_v140/docs/cis_v140_1_3.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.3"
@@ -83,6 +86,7 @@ control "cis_v140_1_4" {
   description   = "The 'root' user account is the most privileged user in an AWS account. AWS Access Keys provide programmatic access to a given AWS account. It is recommended that all access keys associated with the 'root' user account be removed."
   query         = query.iam_root_user_no_access_keys
   documentation = file("./cis_v140/docs/cis_v140_1_4.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.4"
@@ -97,6 +101,7 @@ control "cis_v140_1_5" {
   description   = "The 'root' user account is the most privileged user in an AWS account. Multi-factor Authentication (MFA) adds an extra layer of protection on top of a username and password. With MFA enabled, when a user signs in to an AWS website, they will be prompted for their username and password as well as for an authentication code from their AWS MFA device."
   query         = query.iam_root_user_mfa_enabled
   documentation = file("./cis_v140/docs/cis_v140_1_5.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.5"
@@ -111,6 +116,7 @@ control "cis_v140_1_6" {
   description   = "The 'root' user account is the most privileged user in an AWS account. MFA adds an extra layer of protection on top of a user name and password. With MFA enabled, when a user signs in to an AWS website, they will be prompted for their user name and password as well as for an authentication code from their AWS MFA device. For Level 2, it is recommended that the root user account be protected with a hardware MFA."
   query         = query.iam_root_user_hardware_mfa_enabled
   documentation = file("./cis_v140/docs/cis_v140_1_6.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.6"
@@ -125,6 +131,7 @@ control "cis_v140_1_7" {
   description   = "With the creation of an AWS account, a 'root user' is created that cannot be disabled or deleted. That user has unrestricted access to and control over all resources in the AWS account. It is highly recommended that the use of this account be avoided for everyday tasks."
   query         = query.iam_root_last_used
   documentation = file("./cis_v140/docs/cis_v140_1_7.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.7"
@@ -139,6 +146,7 @@ control "cis_v140_1_8" {
   description   = "Password policies are, in part, used to enforce password complexity requirements. IAM password policies can be used to ensure password are at least a given length. It is recommended that the password policy require a minimum password length 14."
   query         = query.iam_account_password_policy_min_length_14
   documentation = file("./cis_v140/docs/cis_v140_1_8.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.8"
@@ -153,6 +161,7 @@ control "cis_v140_1_9" {
   description   = "IAM password policies can prevent the reuse of a given password by the same user. It is recommended that the password policy prevent the reuse of passwords."
   query         = query.iam_account_password_policy_reuse_24
   documentation = file("./cis_v140/docs/cis_v140_1_9.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.9"
@@ -167,6 +176,7 @@ control "cis_v140_1_10" {
   description   = "Multi-Factor Authentication (MFA) adds an extra layer of authentication assurance beyond traditional credentials. With MFA enabled, when a user signs in to the AWS Console, they will be prompted for their user name and password as well as for an authentication code from their physical or virtual MFA token. It is recommended that MFA be enabled for all accounts that have a console password."
   query         = query.iam_user_console_access_mfa_enabled
   documentation = file("./cis_v140/docs/cis_v140_1_10.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.10"
@@ -181,6 +191,7 @@ control "cis_v140_1_11" {
   description   = "AWS console defaults to no check boxes selected when creating a new IAM user. When creating the IAM User credentials you have to determine what type of access they require."
   query         = query.iam_user_access_keys_and_password_at_setup
   documentation = file("./cis_v140/docs/cis_v140_1_11.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.11"
@@ -195,6 +206,7 @@ control "cis_v140_1_12" {
   description   = "AWS IAM users can access AWS resources using different types of credentials, such as passwords or access keys. It is recommended that all credentials that have been unused in 45 or greater days be deactivated or removed."
   query         = query.iam_user_unused_credentials_45
   documentation = file("./cis_v140/docs/cis_v140_1_12.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.12"
@@ -209,6 +221,7 @@ control "cis_v140_1_13" {
   description   = "Access keys are long-term credentials for an IAM user or the AWS account root user. You can use access keys to sign programmatic requests to the AWS CLI or AWS API (directly or using the AWS SDK)."
   query         = query.iam_user_one_active_key
   documentation = file("./cis_v140/docs/cis_v140_1_13.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.13"
@@ -223,6 +236,7 @@ control "cis_v140_1_14" {
   description   = "Access keys consist of an access key ID and secret access key, which are used to sign programmatic requests that you make to AWS. AWS users need their own access keys to make programmatic calls to AWS from the AWS Command Line Interface (AWS CLI), Tools for Windows PowerShell, the AWS SDKs, or direct HTTP calls using the APIs for individual AWS services. It is recommended that all access keys be regularly rotated."
   query         = query.iam_user_access_key_age_90
   documentation = file("./cis_v140/docs/cis_v140_1_14.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.14"
@@ -237,6 +251,7 @@ control "cis_v140_1_15" {
   description   = "IAM users are granted access to services, functions, and data through IAM policies. There are three ways to define policies for a user: 1) Edit the user policy directly, aka an inline, or user, policy; 2) attach a policy directly to a user; 3) add the user to an IAM group that has an attached policy. Only the third implementation is recommended."
   query         = query.iam_user_no_inline_attached_policies
   documentation = file("./cis_v140/docs/cis_v140_1_15.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.15"
@@ -251,6 +266,7 @@ control "cis_v140_1_16" {
   description   = "IAM policies are the means by which privileges are granted to users, groups, or roles. It is recommended and considered a standard security advice to grant least privilege -that is, granting only the permissions required to perform a task. Determine what users need to do and then craft policies for them that let the users perform only those tasks, instead of allowing full administrative privileges."
   query         = query.iam_policy_all_attached_no_star_star
   documentation = file("./cis_v140/docs/cis_v140_1_16.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.16"
@@ -265,6 +281,7 @@ control "cis_v140_1_17" {
   description   = "AWS provides a support center that can be used for incident notification and response, as well as technical support and customer services. Create an IAM Role to allow authorized users to manage incidents with AWS Support."
   query         = query.iam_support_role
   documentation = file("./cis_v140/docs/cis_v140_1_17.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.17"
@@ -279,6 +296,7 @@ control "cis_v140_1_18" {
   description   = "AWS access from within AWS instances can be done by either encoding AWS keys into AWS API calls or by assigning the instance to a role which has an appropriate permissions policy for the required access. \"AWS Access\" means accessing the APIs of AWS in order to access AWS resources or manage AWS account resources."
   query         = query.manual_control
   documentation = file("./cis_v140/docs/cis_v140_1_18.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.18"
@@ -293,6 +311,7 @@ control "cis_v140_1_19" {
   description   = "To enable HTTPS connections to your website or application in AWS, you need an SSL/TLS server certificate. You can use ACM or IAM to store and deploy server certificates. Use IAM as a certificate manager only when you must support HTTPS connections in a region that is not supported by ACM. IAM securely encrypts your private keys and stores the encrypted version in IAM SSL certificate storage. IAM supports deploying server certificates in all regions, but you must obtain your certificate from an external provider for use with AWS. You cannot upload an ACM certificate to IAM. Additionally, you cannot manage your certificates from the IAM Console."
   query         = query.iam_server_certificate_not_expired
   documentation = file("./cis_v140/docs/cis_v140_1_19.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.19"
@@ -307,6 +326,7 @@ control "cis_v140_1_20" {
   description   = "Enable IAM Access analyzer for IAM policies about all resources in each region. IAM Access Analyzer is a technology introduced at AWS reinvent 2019. After the Analyzer is enabled in IAM, scan results are displayed on the console showing the accessible resources. Scans show resources that other accounts and federated users can access, such as KMS keys and IAM roles. So the results allow you to determine if an unintended user is allowed, making it easier for administrators to monitor least privileges access. Access Analyzer analyzes only policies that are applied to resources in the same AWS Region."
   query         = query.iam_access_analyzer_enabled
   documentation = file("./cis_v140/docs/cis_v140_1_20.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.20"
@@ -321,6 +341,7 @@ control "cis_v140_1_21" {
   description   = "In multi-account environments, IAM user centralization facilitates greater user control. User access beyond the initial account is then provide via role assumption. Centralization of users can be accomplished through federation with an external identity provider or through the use of AWS Organizations."
   query         = query.manual_control
   documentation = file("./cis_v140/docs/cis_v140_1_21.md")
+  severity = "critical"
 
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.21"

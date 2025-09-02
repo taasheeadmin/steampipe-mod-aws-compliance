@@ -29,6 +29,7 @@ control "cis_v120_2_1" {
   description   = "AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service. CloudTrail provides a history of AWS API calls for an account, including API calls made via the Management Console, SDKs, command line tools, and higher-level AWS services (such as CloudFormation)."
   query         = query.cloudtrail_multi_region_read_write_enabled
   documentation = file("./cis_v120/docs/cis_v120_2_1.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.1"
@@ -43,6 +44,7 @@ control "cis_v120_2_2" {
   description   = "CloudTrail log file validation creates a digitally signed digest file containing a hash of each log that CloudTrail writes to S3. These digest files can be used to determine whether a log file was changed, deleted, or unchanged after CloudTrail delivered the log. It is recommended that file validation be enabled on all CloudTrails."
   query         = query.cloudtrail_trail_validation_enabled
   documentation = file("./cis_v120/docs/cis_v120_2_2.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.2"
@@ -57,6 +59,7 @@ control "cis_v120_2_3" {
   description   = "CloudTrail logs a record of every API call made in your AWS account. These logs file are stored in an S3 bucket. It is recommended that the bucket policy, or access control list (ACL), applied to the S3 bucket that CloudTrail logs to prevents public access to the CloudTrail logs."
   query         = query.cloudtrail_bucket_not_public
   documentation = file("./cis_v120/docs/cis_v120_2_3.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.3"
@@ -71,6 +74,7 @@ control "cis_v120_2_4" {
   description   = "AWS CloudTrail is a web service that records AWS API calls made in a given AWS account. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service. CloudTrail uses Amazon S3 for log file storage and delivery, so log files are stored durably. In addition to capturing CloudTrail logs within a specified S3 bucket for long term analysis, realtime analysis can be performed by configuring CloudTrail to send logs to CloudWatch Logs. For a trail that is enabled in all regions in an account, CloudTrail sends log files from all those regions to a CloudWatch Logs log group. It is recommended that CloudTrail logs be sent to CloudWatch Logs."
   query         = query.cloudtrail_trail_integrated_with_logs
   documentation = file("./cis_v120/docs/cis_v120_2_4.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.4"
@@ -85,6 +89,7 @@ control "cis_v120_2_5" {
   description   = "AWS Config is a web service that performs configuration management of supported AWS resources within your account and delivers log files to you. The recorded information includes the configuration item (AWS resource), relationships between configuration items (AWS resources), any configuration changes between resources. It is recommended to enable AWS Config be enabled in all regions."
   query         = query.config_enabled_all_regions
   documentation = file("./cis_v120/docs/cis_v120_2_5.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.5"
@@ -99,6 +104,7 @@ control "cis_v120_2_6" {
   description   = "S3 Bucket Access Logging generates a log that contains access records for each request made to your S3 bucket. An access log record contains details about the request, such as the request type, the resources specified in the request worked, and the time and date the request was processed. It is recommended that bucket access logging be enabled on the CloudTrail S3 bucket."
   query         = query.cloudtrail_s3_logging_enabled
   documentation = file("./cis_v120/docs/cis_v120_2_6.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.6"
@@ -113,6 +119,7 @@ control "cis_v120_2_7" {
   description   = "AWS CloudTrail is a web service that records AWS API calls for an account and makes those logs available to users and resources in accordance with IAM policies. AWS Key Management Service (KMS) is a managed service that helps create and control the encryption keys used to encrypt account data, and uses Hardware Security Modules (HSMs) to protect the security of encryption keys. CloudTrail logs can be configured to leverage server side encryption (SSE) and KMS customer created master keys (CMK) to further protect CloudTrail logs. It is recommended that CloudTrail be configured to use SSE-KMS."
   query         = query.cloudtrail_trail_logs_encrypted_with_kms_cmk
   documentation = file("./cis_v120/docs/cis_v120_2_7.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.7"
@@ -127,6 +134,7 @@ control "cis_v120_2_8" {
   description   = "AWS Key Management Service (KMS) allows customers to rotate the backing key which is key material stored within the KMS which is tied to the key ID of the Customer Created customer master key (CMK). It is the backing key that is used to perform cryptographic operations such as encryption and decryption. Automated key rotation currently retains all prior backing keys so that decryption of encrypted data can take place transparently. It is recommended that CMK key rotation be enabled."
   query         = query.kms_cmk_rotation_enabled
   documentation = file("./cis_v120/docs/cis_v120_2_8.md")
+  severity = "critical"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.8"
@@ -141,6 +149,7 @@ control "cis_v120_2_9" {
   description   = "VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. After you've created a flow log, you can view and retrieve its data in Amazon CloudWatch Logs. It is recommended that VPC Flow Logs be enabled for packet \"Rejects\" for VPCs."
   query         = query.vpc_flow_logs_enabled
   documentation = file("./cis_v120/docs/cis_v120_2_9.md")
+  severity = "high"
 
   tags = merge(local.cis_v120_2_common_tags, {
     cis_item_id = "2.9"

@@ -37,6 +37,7 @@ control "cis_v500_4_1" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms."
   query         = query.log_metric_filter_unauthorized_api
   documentation = file("./cis_v500/docs/cis_v500_4_1.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.1"
@@ -51,6 +52,7 @@ control "cis_v500_4_2" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for console logins that are not protected by multi-factor authentication (MFA)."
   query         = query.log_metric_filter_console_login_mfa
   documentation = file("./cis_v500/docs/cis_v500_4_2.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.2"
@@ -65,6 +67,7 @@ control "cis_v500_4_3" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for 'root' login attempts to detect unauthorized use or attempts to use the root account."
   query         = query.log_metric_filter_root_login
   documentation = file("./cis_v500/docs/cis_v500_4_3.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.3"
@@ -79,6 +82,7 @@ control "cis_v500_4_4" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for changes made to Identity and Access Management (IAM) policies."
   query         = query.log_metric_filter_iam_policy
   documentation = file("./cis_v500/docs/cis_v500_4_4.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.4"
@@ -93,6 +97,7 @@ control "cis_v500_4_5" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be used to detect changes to CloudTrail's configurations."
   query         = query.log_metric_filter_cloudtrail_configuration
   documentation = file("./cis_v500/docs/cis_v500_4_5.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.5"
@@ -107,6 +112,7 @@ control "cis_v500_4_6" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for failed console authentication attempts."
   query         = query.log_metric_filter_console_authentication_failure
   documentation = file("./cis_v500/docs/cis_v500_4_6.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.6"
@@ -121,6 +127,7 @@ control "cis_v500_4_7" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for customer-created CMKs that have changed state to disabled or are scheduled for deletion."
   query         = query.log_metric_filter_disable_or_delete_cmk
   documentation = file("./cis_v500/docs/cis_v500_4_7.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.7"
@@ -135,6 +142,7 @@ control "cis_v500_4_8" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for changes to S3 bucket policies."
   query         = query.log_metric_filter_bucket_policy
   documentation = file("./cis_v500/docs/cis_v500_4_8.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.8"
@@ -149,6 +157,7 @@ control "cis_v500_4_9" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for detecting changes to AWS Config's configurations."
   query         = query.log_metric_filter_config_configuration
   documentation = file("./cis_v500/docs/cis_v500_4_9.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.9"
@@ -163,6 +172,7 @@ control "cis_v500_4_10" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. Security groups are stateful packet filters that control ingress and egress traffic within a VPC. It is recommended that a metric filter and alarm be established to detect changes to security groups."
   query         = query.log_metric_filter_security_group
   documentation = file("./cis_v500/docs/cis_v500_4_10.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.10"
@@ -177,6 +187,7 @@ control "cis_v500_4_11" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. NACLs are used as a stateless packet filter to control ingress and egress traffic for subnets within a VPC. It is recommended that a metric filter and alarm be established for any changes made to NACLs."
   query         = query.log_metric_filter_network_acl
   documentation = file("./cis_v500/docs/cis_v500_4_11.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.11"
@@ -191,6 +202,7 @@ control "cis_v500_4_12" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. Network gateways are required to send and receive traffic to a destination outside of a VPC. It is recommended that a metric filter and alarm be established for changes to network gateways."
   query         = query.log_metric_filter_network_gateway
   documentation = file("./cis_v500/docs/cis_v500_4_12.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.12"
@@ -205,6 +217,7 @@ control "cis_v500_4_13" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. Routing tables are used to route network traffic between subnets and to network gateways. It is recommended that a metric filter and alarm be established for changes to route tables."
   query         = query.log_metric_filter_route_table
   documentation = file("./cis_v500/docs/cis_v500_4_13.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.13"
@@ -219,6 +232,7 @@ control "cis_v500_4_14" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is possible to have more than one VPC within an account; additionally, it is also possible to create a peer connection between two VPCs, enabling network traffic to route between them. It is recommended that a metric filter and alarm be established for changes made to VPCs."
   query         = query.log_metric_filter_vpc
   documentation = file("./cis_v500/docs/cis_v500_4_14.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.14"
@@ -233,6 +247,7 @@ control "cis_v500_4_15" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs or an external Security Information and Event Management (SIEM) environment, and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for changes made to AWS Organizations in the master AWS account."
   query         = query.log_metric_filter_organization
   documentation = file("./cis_v500/docs/cis_v500_4_15.md")
+  severity       = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.15"
@@ -247,6 +262,7 @@ control "cis_v500_4_16" {
   description   = "Security Hub collects security data from various AWS accounts, services, and supported third-party partner products, helping you analyze your security trends and identify the highest-priority security issues. When you enable Security Hub, it begins to consume, aggregate, organize, and prioritize findings from the AWS services that you have enabled, such as Amazon GuardDuty, Amazon Inspector, and Amazon Macie. You can also enable integrations with AWS partner security products."
   query         = query.securityhub_enabled
   documentation = file("./cis_v500/docs/cis_v500_4_16.md")
+  severity = "high"
 
   tags = merge(local.cis_v500_4_common_tags, {
     cis_item_id = "4.16"

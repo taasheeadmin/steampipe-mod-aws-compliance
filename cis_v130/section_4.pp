@@ -36,6 +36,7 @@ control "cis_v130_4_1" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for unauthorized API calls."
   query         = query.log_metric_filter_unauthorized_api
   documentation = file("./cis_v130/docs/cis_v130_4_1.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.1"
@@ -50,6 +51,7 @@ control "cis_v130_4_2" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for console logins that are not protected by multi-factor authentication (MFA)."
   query         = query.log_metric_filter_console_login_mfa
   documentation = file("./cis_v130/docs/cis_v130_4_2.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.2"
@@ -64,6 +66,7 @@ control "cis_v130_4_3" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for root login attempts."
   query         = query.log_metric_filter_root_login
   documentation = file("./cis_v130/docs/cis_v130_4_3.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.3"
@@ -78,6 +81,7 @@ control "cis_v130_4_4" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established changes made to Identity and Access Management (IAM) policies."
   query         = query.log_metric_filter_iam_policy
   documentation = file("./cis_v130/docs/cis_v130_4_4.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.4"
@@ -92,6 +96,7 @@ control "cis_v130_4_5" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations."
   query         = query.log_metric_filter_cloudtrail_configuration
   documentation = file("./cis_v130/docs/cis_v130_4_5.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.5"
@@ -106,6 +111,7 @@ control "cis_v130_4_6" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for failed console authentication attempts."
   query         = query.log_metric_filter_console_authentication_failure
   documentation = file("./cis_v130/docs/cis_v130_4_6.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.6"
@@ -120,6 +126,7 @@ control "cis_v130_4_7" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for customer created CMKs which have changed state to disabled or scheduled deletion."
   query         = query.log_metric_filter_disable_or_delete_cmk
   documentation = file("./cis_v130/docs/cis_v130_4_7.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.7"
@@ -134,6 +141,7 @@ control "cis_v130_4_8" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for changes to S3 bucket policies."
   query         = query.log_metric_filter_bucket_policy
   documentation = file("./cis_v130/docs/cis_v130_4_8.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.8"
@@ -148,6 +156,7 @@ control "cis_v130_4_9" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for detecting changes to CloudTrail's configurations."
   query         = query.log_metric_filter_config_configuration
   documentation = file("./cis_v130/docs/cis_v130_4_9.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.9"
@@ -162,6 +171,7 @@ control "cis_v130_4_10" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Security Groups are a stateful packet filter that controls ingress and egress traffic within a VPC. It is recommended that a metric filter and alarm be established for detecting changes to Security Groups."
   query         = query.log_metric_filter_security_group
   documentation = file("./cis_v130/docs/cis_v130_4_10.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.10"
@@ -176,6 +186,7 @@ control "cis_v130_4_11" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. NACLs are used as a stateless packet filter to control ingress and egress traffic for subnets within a VPC. It is recommended that a metric filter and alarm be established for changes made to NACLs."
   query         = query.log_metric_filter_network_acl
   documentation = file("./cis_v130/docs/cis_v130_4_11.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.11"
@@ -190,6 +201,7 @@ control "cis_v130_4_12" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Network gateways are required to send/receive traffic to a destination outside of a VPC. It is recommended that a metric filter and alarm be established for changes to network gateways."
   query         = query.log_metric_filter_network_gateway
   documentation = file("./cis_v130/docs/cis_v130_4_12.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.12"
@@ -204,6 +216,7 @@ control "cis_v130_4_13" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Routing tables are used to route network traffic between subnets and to network gateways. It is recommended that a metric filter and alarm be established for changes to route tables."
   query         = query.log_metric_filter_route_table
   documentation = file("./cis_v130/docs/cis_v130_4_13.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.13"
@@ -218,6 +231,7 @@ control "cis_v130_4_14" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is possible to have more than 1 VPC within an account, in addition it is also possible to create a peer connection between 2 VPCs enabling network traffic to route between VPCs. It is recommended that a metric filter and alarm be established for changes made to VPCs."
   query         = query.log_metric_filter_vpc
   documentation = file("./cis_v130/docs/cis_v130_4_14.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.14"
@@ -232,6 +246,7 @@ control "cis_v130_4_15" {
   description   = "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. It is recommended that a metric filter and alarm be established for AWS Organizations changes made in the master AWS Account."
   query         = query.log_metric_filter_organization
   documentation = file("./cis_v130/docs/cis_v130_4_15.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_4_common_tags, {
     cis_item_id = "4.15"

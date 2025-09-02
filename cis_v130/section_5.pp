@@ -25,6 +25,7 @@ control "cis_v130_5_1" {
   description   = "The Network Access Control List (NACL) function provide stateless filtering of ingress and egress network traffic to AWS resources. It is recommended that no NACL allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389."
   query         = query.vpc_network_acl_remote_administration
   documentation = file("./cis_v130/docs/cis_v130_5_1.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_5_common_tags, {
     cis_item_id = "5.1"
@@ -39,6 +40,7 @@ control "cis_v130_5_2" {
   description   = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH to port 22 and RDP to port 3389."
   query         = query.vpc_security_group_remote_administration
   documentation = file("./cis_v130/docs/cis_v130_5_2.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_5_common_tags, {
     cis_item_id = "5.2"
@@ -53,6 +55,7 @@ control "cis_v130_5_3" {
   description   = "A VPC comes with a default security group whose initial settings deny all inbound traffic, allow all outbound traffic, and allow all traffic between instances assigned to the security group. If you don't specify a security group when you launch an instance, the instance is automatically assigned to this default security group. Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that the default security group restrict all traffic."
   query         = query.vpc_default_security_group_restricts_all_traffic
   documentation = file("./cis_v130/docs/cis_v130_5_3.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_5_common_tags, {
     cis_item_id = "5.3"
@@ -67,6 +70,7 @@ control "cis_v130_5_4" {
   description   = "A VPC comes with a default security group whose initial settings deny all inbound traffic, allow all outbound traffic, and allow all traffic between instances assigned to the security group. If you don't specify a security group when you launch an instance, the instance is automatically assigned to this default security group. Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that the default security group restrict all traffic."
   query         = query.manual_control
   documentation = file("./cis_v130/docs/cis_v130_5_4.md")
+  severity = "high"
 
   tags = merge(local.cis_v130_5_common_tags, {
     cis_item_id = "5.4"

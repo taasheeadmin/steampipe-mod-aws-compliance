@@ -76,6 +76,7 @@ control "cis_v500_5_2" {
   description   = "The Network Access Control List (NACL) function provides stateless filtering of ingress and egress network traffic to AWS resources. It is recommended that no NACL allows unrestricted ingress access to remote server administration ports, such as SSH on port 22 and RDP on port 3389, using either the TCP (6), UDP (17), or ALL (-1) protocols."
   query         = query.vpc_network_acl_remote_administration
   documentation = file("./cis_v500/docs/cis_v500_5_2.md")
+  severity      = "high"
 
   tags = merge(local.cis_v500_5_common_tags, {
     cis_item_id = "5.2"
@@ -90,6 +91,7 @@ control "cis_v500_5_3" {
   description   = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH on port 22 and RDP on port 3389, using either the TCP (6), UDP (17), or ALL (-1) protocols."
   query         = query.vpc_security_group_remote_administration_ipv4
   documentation = file("./cis_v500/docs/cis_v500_5_3.md")
+  severity      = "high"
 
   tags = merge(local.cis_v500_5_common_tags, {
     cis_item_id = "5.3"
@@ -104,6 +106,7 @@ control "cis_v500_5_4" {
   description   = "Security groups provide stateful filtering of ingress and egress network traffic to AWS resources. It is recommended that no security group allows unrestricted ingress access to remote server administration ports, such as SSH on port 22 and RDP on port 3389."
   query         = query.vpc_security_group_remote_administration_ipv6
   documentation = file("./cis_v500/docs/cis_v500_5_3.md")
+  severity      = "high"
 
   tags = merge(local.cis_v500_5_common_tags, {
     cis_item_id = "5.4"
@@ -118,6 +121,7 @@ control "cis_v500_5_5" {
   description   = "A VPC comes with a default security group whose initial settings deny all inbound traffic, allow all outbound traffic, and allow all traffic between instances assigned to the security group. If a security group is not specified when an instance is launched, it is automatically assigned to this default security group. Security groups provide stateful filtering of ingress/egress network traffic to AWS resources. It is recommended that the default security group restrict all traffic, both inbound and outbound."
   query         = query.vpc_default_security_group_restricts_all_traffic
   documentation = file("./cis_v500/docs/cis_v500_5_5.md")
+  severity      = "high"
 
   tags = merge(local.cis_v500_5_common_tags, {
     cis_item_id = "5.5"
@@ -146,6 +150,7 @@ control "cis_v500_5_7" {
   description   = "When enabling the Metadata Service on AWS EC2 instances, users have the option of using either Instance Metadata Service Version 1 (IMDSv1; a request/response method) or Instance Metadata Service Version 2 (IMDSv2; a session-oriented method)."
   query         = query.ec2_instance_uses_imdsv2
   documentation = file("./cis_v500/docs/cis_v500_5_7.md")
+  severity = "high"
 
   tags = merge(local.cis_v500_5_common_tags, {
     cis_item_id = "5.7"
